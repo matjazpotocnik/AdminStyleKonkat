@@ -1,0 +1,28 @@
+/** pw-text */
+
+@pw-tiny-font-size: 12px;
+
+// Prefer the pw- classes; unprefixed helpers remain for backwards compatibility.
+.detail, .pw-detail,
+.notes, .pw-notes {
+  .uk-text-small();
+}
+
+.detail, .pw-detail,
+.notes, .pw-notes,
+.description, .pw-description,
+#main .notes {
+  color: var(--pw-muted-color) !important;
+}
+
+#main .notes,
+#main p.pw-notes {
+  background-color: var(--pw-notes-background);
+}
+
+// Give paragraph notes a small inset and a theme-aware callout edge.
+#main p.notes,
+#main p.pw-notes {
+  padding-left: 5px;
+  border-left: 3px solid var(--pw-border-color);
+}

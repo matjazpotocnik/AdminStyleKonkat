@@ -1,0 +1,107 @@
+/** pw-inputfields-file */
+
+.InputfieldFile {
+  > .InputfieldContent {
+    padding-top: 1px;
+  }
+  .InputfieldFileList .hasLangTabs .InputfieldFileDescription.LanguageSupport {
+    padding-top: 0;
+  }
+}
+
+.InputfieldFileList {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  
+  > li {
+    margin-top: 0;
+    border: none;
+  
+    > .InputfieldItemHeader,
+    > .InputfieldItemHeader.InputfieldFileInfo {
+      border: none;
+      background: var(--pw-inputs-background);
+      background-color: var(--pw-inputs-background) !important;
+      color: var(--pw-text-color);
+      outline: 1px solid var(--pw-border-color);
+      font-weight: inherit;
+      padding: 0.6em 0 0.6em 0.4em;
+      min-height: 2.2rem;
+      a {
+        color: @global-inverse-color;
+      }
+      &.ui-state-error {
+        // deleted item state 
+        text-decoration: line-through;
+      }
+    }
+    
+    > .InputfieldFileData {
+      background: @global-background;
+      border: @pw-inputfield-border; 
+      border-top: none;
+    }
+  }
+}
+
+ul.InputfieldFileList.InputfieldFileList li .InputfieldFileData {
+  outline: 1px solid var(--pw-border-color);
+  border: none;
+  margin-top: 1px;
+  background-color: var(--pw-blocks-background);
+}
+
+.InputfieldFileDelete {
+  padding-right: 7px;
+}
+
+.AjaxUpload .InputfieldFileInfo .InputfieldFileName,
+ul.InputfieldFileList li .InputfieldFileInfo .InputfieldFileName {
+  color: var(--pw-text-color);
+  font-weight: 600 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media (hover: hover) and (pointer: fine) {
+  .InputfieldFileList > li > .InputfieldItemHeader:hover {
+    border-color: var(--pw-border-color);
+  }
+}
+
+.Inputfields .InputfieldFile .InputfieldContent .InputfieldItemHeader.ui-state-error,
+.Inputfields .InputfieldFile .InputfieldContent .InputfieldItemHeader.ui-state-error > *,
+.Inputfields .InputfieldFile .InputfieldContent .InputfieldItemHeader:has(.InputfieldFileDelete:hover),
+.Inputfields .InputfieldFile .InputfieldContent .InputfieldItemHeader:has(.InputfieldFileDelete:hover) > * {
+  background-color: var(--pw-alert-danger) !important;
+  color: var(--pw-error-inline-text-color) !important;
+  border-color: var(--pw-error-inline-text-color);
+  outline-color: var(--pw-error-inline-text-color);
+}
+
+// style when dragging in a file
+.Inputfields {
+  .Inputfield.pw-drag-in-file {
+    background: var(--pw-inputs-background) !important;
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      border: none;
+      background: @pw-inputfield-drag-in-file-background;
+    }
+  }
+}
+
+.Inputfields :is(.InputfieldFileUpload, .InputfieldImageUpload) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.InputfieldImageValidExtensions.InputfieldImageValidExtensions.InputfieldImageValidExtensions {
+  top: 0;
+}
+
+:is(.InputfieldImageValidExtensions, .InputfieldFileValidExtensions):is(.InputfieldImageValidExtensions, .InputfieldFileValidExtensions) {
+  margin-left: 0;
+}

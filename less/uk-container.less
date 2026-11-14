@@ -1,0 +1,16 @@
+/** uk-container */
+
+.hook-container-misc() {
+    .uk-container:not(.uk-padding) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .uk-container:not([class*=uk-width]) { max-width: none; }
+
+    :is(.uk-card, .uk-section, .uk-container) > .uk-container {
+        padding-left: var(--pw-spacing);
+        padding-right: var(--pw-spacing);
+        max-width: none;
+    }
+}

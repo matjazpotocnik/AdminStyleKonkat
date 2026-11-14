@@ -1,0 +1,14 @@
+/** uk-subnav */
+
+@subnav-item-color: var(--pw-text-color);
+@subnav-item-hover-color: var(--pw-text-color);
+@subnav-item-active-color: var(--pw-text-color);
+@subnav-divider-border: var(--pw-border-color);
+@subnav-pill-item-color: var(--pw-muted-color);
+@subnav-pill-item-hover-background: var(--pw-blocks-background);
+@subnav-pill-item-hover-color: var(--pw-text-color);
+@subnav-pill-item-active-background: var(--pw-text-color);
+@subnav-pill-item-active-color: var(--pw-blocks-background);
+
+.uk-subnav:where(:not(.uk-subnav-pill)) > :where(:not(.uk-disabled)) > a:hover { color: var(--pw-main-color); }
+.uk-subnav > .uk-disabled > a { color: var(--pw-muted-color); }

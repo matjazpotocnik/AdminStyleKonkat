@@ -1,0 +1,78 @@
+/** uk-card */
+
+@card-badge-background: var(--pw-main-color);
+@card-badge-color: var(--pw-blocks-background);
+@card-default-header-border: var(--pw-border-color);
+@card-default-footer-border: var(--pw-border-color);
+@card-primary-title-color: inherit;
+@card-secondary-title-color: inherit;
+
+// Empty inputs suppress UIkit's variant shadows; the shared rule below owns them.
+@card-hover-box-shadow: ~"";
+@card-default-box-shadow: ~"";
+@card-default-hover-box-shadow: ~"";
+@card-primary-box-shadow: ~"";
+@card-primary-hover-box-shadow: ~"";
+@card-secondary-box-shadow: ~"";
+@card-secondary-hover-box-shadow: ~"";
+@card-overlay-box-shadow: ~"";
+@card-overlay-hover-box-shadow: ~"";
+
+@pw-card-shadow-size: 0 5px 15px;
+
+.hook-card-misc() {
+    .uk-card-default:where(*) {
+        background-color: var(--pw-blocks-background);
+        color: var(--pw-text-color);
+    }
+
+    .uk-card-default .uk-card-title,
+    .uk-card-primary .uk-card-title,
+    .uk-card-secondary .uk-card-title {
+        color: var(--pw-text-color);
+    }
+
+    .uk-card-primary:where(*) {
+        background-color: var(--pw-main-color);
+        color: light-dark(var(--pw-blocks-background), var(--pw-text-color));
+    }
+    
+    .uk-card-secondary:where(*) {
+        background: var(--pw-secondary-background);
+        color: light-dark(var(--pw-blocks-background), var(--pw-text-color));
+    }
+    
+    .uk-card:where(*),
+    .uk-card-hover:where(*) {
+        outline: none !important;
+        border: none !important;
+        box-shadow: @pw-card-shadow-size color-mix(in srgb, var(--pw-text-color), transparent 95%);
+        // transition: box-shadow .25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .uk-card-hover:not(.uk-card-default):not(.uk-card-primary):not(.uk-card-secondary):hover,
+        .uk-card-default.uk-card-hover:hover {
+            background-color: var(--pw-blocks-background);
+        }
+        .uk-card-primary.uk-card-hover:hover {
+            background-color: var(--pw-main-color);
+            color: light-dark(var(--pw-blocks-background), var(--pw-text-color));
+        }
+        .uk-card-secondary.uk-card-hover:hover {
+            background: var(--pw-secondary-background);
+            color: light-dark(var(--pw-blocks-background), var(--pw-text-color));
+        }
+        .uk-card:hover,
+        .uk-card-hover:hover {
+            box-shadow: @pw-card-shadow-size color-mix(in srgb, var(--pw-text-color), transparent 90%);
+        }
+        .uk-card-secondary.uk-card-hover:hover h3 {
+            color: var(--pw-blocks-background);
+        }
+        .uk-card-primary.uk-card-hover:hover .uk-card-title,
+        .uk-card-secondary.uk-card-hover:hover .uk-card-title {
+            color: inherit;
+        }
+    }
+}

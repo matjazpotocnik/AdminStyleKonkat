@@ -1,0 +1,10 @@
+/** uk-drop */
+
+.uk-drop:where(*) {
+    background: var(--pw-blocks-background);
+    color: var(--pw-text-color);
+    border: 1px solid var(--pw-border-color);
+}
+.hook-drop-misc() {
+    .uk-drop.uk-open > ul { display: block; }
+}

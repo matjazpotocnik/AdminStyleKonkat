@@ -1,0 +1,10 @@
+/** uk-overlay */
+
+@overlay-default-background: color-mix(in srgb, var(--pw-blocks-background) 80%, transparent);
+@overlay-primary-background: var(--pw-modal-color);
+
+.hook-overlay-default() { color: var(--pw-text-color); }
+.hook-overlay-primary() { color: light-dark(var(--pw-blocks-background), var(--pw-text-color)); }
+.uk-overlay-primary { color: light-dark(var(--pw-blocks-background), var(--pw-text-color)); }
+.uk-overlay-default { background: @overlay-default-background; color: var(--pw-text-color); }
+.uk-overlay-primary { background: @overlay-primary-background; }

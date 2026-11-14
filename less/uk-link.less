@@ -1,0 +1,35 @@
+/** uk-link */
+
+@link-muted-color: var(--pw-muted-color);
+@link-muted-hover-color: var(--pw-muted-color);
+@link-text-hover-color: var(--pw-main-color);
+@link-heading-hover-color: var(--pw-main-color);
+@link-heading-hover-text-decoration: underline;
+
+.hook-link-text-hover() {
+    text-decoration: underline;
+}
+
+.hook-link-text() { text-decoration: underline; }
+.hook-link-heading() { text-decoration: underline; }
+
+.hook-link-misc() {
+    :where(.uk-card-primary, .uk-card-secondary, .uk-tile-secondary:not(.uk-preserve-color)) {
+        a:where(:not([class*='uk-'], .uk-tab a, .uk-nav a, .uk-breadcrumb a)),
+        a:is(.uk-link, .uk-link-text, .uk-link-heading, .uk-link-muted),
+        :is(.uk-link, .uk-link-text, .uk-link-heading, .uk-link-muted) {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        a:where(:not([class*='uk-'], .uk-tab a, .uk-nav a, .uk-breadcrumb a)):hover,
+        .uk-link:hover,
+        .uk-link-toggle:hover .uk-link,
+        a:is(.uk-link-text, .uk-link-heading, .uk-link-muted):hover,
+        :is(.uk-link-text, .uk-link-heading, .uk-link-muted) a:hover,
+        .uk-link-toggle:hover :is(.uk-link-text, .uk-link-heading, .uk-link-muted) {
+            color: inherit;
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+/** uk-description-list */
+
+@description-list-term-color: var(--pw-text-color);
+@description-list-term-font-size: inherit;
+@description-list-term-text-transform: none;
+@description-list-divider-term-border: var(--pw-border-color);
+
+.hook-description-list-divider-term() {
+  color: var(--pw-text-color);
+  border-color: var(--pw-border-color);
+}
+
+.hook-description-list-misc() {
+  .uk-description-list {
+    color: var(--pw-text-color);
+    outline: 1px solid var(--pw-border-color);
+    background: var(--pw-blocks-background);
+    padding: 20px 20px 35px;
+  }
+
+  .uk-description-list dt,
+  .uk-description-list dt a {
+    font-size: inherit;
+    text-transform: none;
+  }
+
+  .uk-description-list dt a .fa {
+    color: var(--pw-muted-color);
+    opacity: 0.3;
+  }
+}

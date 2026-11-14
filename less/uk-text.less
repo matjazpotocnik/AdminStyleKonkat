@@ -1,0 +1,53 @@
+/** uk-text */
+
+@text-lead-color: var(--pw-text-color);
+@text-meta-font-size: .875rem;
+@text-meta-link-color: var(--pw-muted-color);
+@text-meta-link-hover-color: var(--pw-text-color);
+
+.hook-text-misc() {
+  .uk-text-primary:where(*) { color: var(--pw-main-color) !important; }
+  .uk-text-meta:where(*) { color: var(--pw-muted-color) !important; }
+  .uk-text-emphasis:where(:not(.uk-text-primary)) { color: var(--pw-text-color) !important; }
+  .uk-text-secondary:where(*) { color: var(--pw-muted-color) !important; }
+  .uk-text-success:where(*) {
+    background-color: var(--pw-alert-success);
+    color: var(--pw-text-color) !important;
+  }
+  .uk-text-warning:where(*) {
+    background-color: var(--pw-alert-warning);
+    color: var(--pw-text-color) !important;
+  }
+  .uk-text-danger:where(*) {
+    background-color: var(--pw-error-inline-text-color);
+    color: light-dark(var(--pw-blocks-background), var(--pw-text-color)) !important;
+  }
+  .uk-text-background:where(*) {
+    background-color: var(--pw-main-color);
+    color: var(--pw-blocks-background);
+    background-image: none;
+  }
+  .uk-text-muted:where(*) { color: var(--pw-muted-color) !important; }
+}
+
+.uk-overlay-primary .uk-text-meta:where(:not(.uk-text-emphasis, .uk-text-primary, .uk-text-secondary, .uk-text-muted, .uk-text-success, .uk-text-warning, .uk-text-danger, .uk-text-background)),
+.uk-overlay-primary .uk-text-meta:where(:not(.uk-text-emphasis, .uk-text-primary, .uk-text-secondary, .uk-text-muted, .uk-text-success, .uk-text-warning, .uk-text-danger, .uk-text-background)) > a {
+  color: color-mix(in srgb, light-dark(var(--pw-blocks-background), var(--pw-text-color)) 60%, transparent) !important;
+}
+
+.uk-overlay-primary .uk-text-meta:where(:not(.uk-text-emphasis, .uk-text-primary, .uk-text-secondary, .uk-text-muted, .uk-text-success, .uk-text-warning, .uk-text-danger, .uk-text-background)) > a {
+  text-decoration-line: underline;
+}
+
+.uk-overlay-primary .uk-text-meta.uk-text-emphasis:where(:not(.uk-text-primary, .uk-text-secondary, .uk-text-muted, .uk-text-success, .uk-text-warning, .uk-text-danger, .uk-text-background)),
+.uk-overlay-primary .uk-text-meta.uk-text-emphasis:where(:not(.uk-text-primary, .uk-text-secondary, .uk-text-muted, .uk-text-success, .uk-text-warning, .uk-text-danger, .uk-text-background)) > a {
+  color: light-dark(var(--pw-blocks-background), var(--pw-text-color)) !important;
+}
+
+.uk-overlay-primary .uk-text-meta:is(.uk-text-success, .uk-text-warning, .uk-text-danger) > a {
+  color: inherit;
+}
+
+.uk-text-meta:is(.uk-text-emphasis, .uk-text-success, .uk-text-warning, .uk-text-danger) > a {
+  text-decoration-line: underline;
+}

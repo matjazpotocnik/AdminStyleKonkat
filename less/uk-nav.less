@@ -1,0 +1,44 @@
+/** uk-nav */
+
+@nav-default-item-color: var(--pw-muted-color);
+@nav-default-item-hover-color: var(--pw-text-color);
+@nav-default-item-active-color: var(--pw-text-color);
+@nav-default-header-color: var(--pw-text-color);
+@nav-default-divider-border: var(--pw-muted-color);
+@nav-default-sublist-item-color: var(--pw-muted-color);
+@nav-default-sublist-item-hover-color: var(--pw-text-color);
+@nav-default-sublist-item-active-color: var(--pw-text-color);
+
+@nav-primary-item-color: var(--pw-text-color);
+@nav-primary-item-hover-color: var(--pw-text-color);
+@nav-primary-item-active-color: var(--pw-text-color);
+@nav-primary-header-color: var(--pw-text-color);
+@nav-primary-divider-border: var(--pw-border-color);
+@nav-primary-sublist-item-color: var(--pw-text-color);
+@nav-primary-sublist-item-hover-color: var(--pw-text-color);
+@nav-primary-sublist-item-active-color: var(--pw-text-color);
+
+@nav-secondary-item-color: var(--pw-text-color);
+@nav-secondary-item-hover-color: var(--pw-text-color);
+@nav-secondary-item-active-color: var(--pw-text-color);
+@nav-secondary-subtitle-color: var(--pw-text-color);
+@nav-secondary-subtitle-hover-color: var(--pw-text-color);
+@nav-secondary-subtitle-active-color: var(--pw-text-color);
+@nav-secondary-header-color: var(--pw-text-color);
+@nav-secondary-divider-border: var(--pw-border-color);
+@nav-secondary-sublist-item-color: var(--pw-text-color);
+@nav-secondary-sublist-item-hover-color: var(--pw-text-color);
+@nav-secondary-sublist-item-active-color: var(--pw-text-color);
+
+@nav-dividers-border: var(--pw-border-color);
+
+.hook-nav-header() { color: var(--pw-text-color); }
+.hook-nav-default-divider() { border-color: var(--pw-border-color); }
+.hook-nav-secondary-item-hover() { background: var(--pw-blocks-background); }
+.hook-nav-secondary-item-active() { background: var(--pw-blocks-background); }
+
+.hook-nav-misc() {
+    .uk-nav.uk-nav-divider > :not(.uk-nav-divider) + :not(.uk-nav-header, .uk-nav-divider) {
+        border-top-color: var(--pw-border-color);
+    }
+}

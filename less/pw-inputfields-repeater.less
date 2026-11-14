@@ -1,0 +1,171 @@
+
+/** pw-inputfields-repeater */
+
+@pw-inputfield-repeater-background: @pw-inputfield-background;
+@pw-inputfield-repeater-background-none: @pw-inputfield-background-none;
+
+.Inputfields .InputfieldRepeater {
+  
+  &:not(.InputfieldIsColor):not(.InputfieldNoBorder) {
+    background: @pw-inputfield-repeater-background;
+
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      background: @pw-inputfield-repeater-background;
+    }
+    > .InputfieldContent {
+      > .Inputfields {
+        background: transparent;
+      }
+    }
+  }
+
+  .InputfieldRepeaterItem {
+    &:not(.InputfieldRepeaterDeletePending).InputfieldStateCollapsed > .InputfieldHeader {
+      background-color: var(--pw-inputs-background);
+      outline: none;
+      border: @pw-inputfield-border;
+      margin-left: -1px;
+      margin-right: -1px;
+      width: calc(100% + 2px);
+      transition: border-bottom-color 0.15s ease;
+      color: var(--pw-text-color);
+      font-weight: inherit;
+      padding: 0.6em 0 0.6em 0.4em;
+      min-height: 2.2rem;
+    }
+
+    &:where(:not(.InputfieldRepeaterDeletePending).InputfieldRepeaterOff) > .InputfieldHeader {
+      outline-color: var(--pw-inputs-background);
+    }
+
+    > .InputfieldHeader.InputfieldRepeaterHeaderInit {
+      .InputfieldRepeaterItemLabel { display: inline; }
+      .toggle-icon { line-height: 1.3em; }
+    }
+
+    &.Inputfield:not(.InputfieldStateCollapsed) > .InputfieldHeader {
+      border-bottom-color: transparent;
+      transition: border-bottom-color 0.15s ease;
+    }
+
+    &:not(.InputfieldRepeaterDeletePending).InputfieldRepeaterUnpublished > .InputfieldHeader {
+      opacity: 1;
+      > * { opacity: 0.5; }
+    }
+  }
+
+  .InputfieldContent {
+    .InputfieldRepeaterItem {
+      margin: 0 0 8px;
+
+      > .InputfieldHeader {
+        background: var(--pw-inputs-background);
+        color: var(--pw-text-color);
+        outline: none;
+        border: @pw-inputfield-border;
+        font-weight: inherit;
+        padding: 0.6em 0 0.6em 0.4em;
+        min-height: 2.2rem;
+        margin-left: -1px;
+        margin-right: -1px;
+        width: calc(100% + 2px);
+        transition: border-bottom-color 0.15s ease;
+
+        a {
+          color: inherit;
+          cursor: pointer;
+          line-height: @global-line-height;
+
+          &:hover {
+            background: transparent;
+            border: none;
+          }
+
+          .InputfieldRepeaterItemControls {
+            line-height: @global-line-height;
+            padding-top: 4px;
+          }
+
+        }
+
+        i.toggle-icon {
+          color: inherit;
+        }
+
+        &.ui-state-hover {
+          background-color: var(--pw-main-background);
+          border-color: var(--pw-border-color);
+          color: var(--pw-text-color);
+        }
+
+        &.ui-state-error {
+          text-decoration: line-through;
+          background: var(--pw-alert-danger);
+          color: var(--pw-text-color);
+          border-color: var(--pw-error-inline-text-color);
+          outline-color: var(--pw-border-color);
+        }
+
+        &:has(.InputfieldRepeaterTrash:hover) {
+          background-color: var(--pw-alert-danger);
+          border-color: var(--pw-error-inline-text-color);
+        }
+      }
+
+      > .InputfieldContent {
+        outline: none;
+        padding: 0;
+        background: @pw-inputfield-repeater-background-none;
+
+        .Inputfields > .InputfieldNoBorder {
+          // the global NoBorder padding 0 doesn't work when in a repeater item, so we add it back here
+          .InputfieldContent {
+            padding: @pw-inputfield-content-padding;
+          }
+          .InputfieldHeader {
+            padding: @pw-inputfield-header-padding;
+          }
+        }
+      }
+
+    }
+  }
+
+  .InputfieldRepeaterDrag { opacity: 1; }
+
+}
+
+.InputfieldRepeaterInit > li > label + div:before,
+.InputfieldRepeaterInit > li > label + div:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 1px;
+  bottom: auto;
+  top: -1px;
+  background-color: var(--pw-blocks-background);
+  z-index: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.InputfieldRepeaterInit > li > label + div {
+  &:before { left: -1px; }
+  &:after { right: -1px; }
+}
+.InputfieldRepeaterInit > li {
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-right: -1px;
+  padding-top: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+  position: relative;
+}
+
+.Inputfields .Inputfield.InputfieldRepeaterItem > .InputfieldContent {
+  position: relative;
+  z-index: 2;
+}

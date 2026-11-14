@@ -1,0 +1,24 @@
+/** uk-list */
+
+@list-divider-border: var(--pw-border-color);
+@list-primary-color: var(--pw-main-color);
+@list-striped-background: var(--pw-inputs-background);
+@list-striped-border: var(--pw-border-color);
+
+.hook-list-misc() {
+	.uk-list-bullet > ::before {
+		background-image: none;
+		background-color: currentColor;
+		opacity: 0.5;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		top: 0.55em;
+		left: 12px;
+	}
+
+	.uk-list-muted > ::before { color: var(--pw-muted-color) !important; }
+	.uk-list-emphasis > ::before { color: var(--pw-text-color) !important; }
+	.uk-list-primary > ::before { color: var(--pw-main-color) !important; }
+	.uk-list-secondary > ::before { color: var(--pw-border-color) !important; }
+}

@@ -1,0 +1,85 @@
+/** pw-inputfields-colors */
+
+// Inputfield color support
+.InputfieldIsPrimary {
+  &:not(.InputfieldNoBorder){
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      background: @pw-inputfield-background-primary;
+    }
+  }
+}
+
+.InputfieldIsSuccess {
+  &:not(.InputfieldNoBorder) {
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      background: @pw-inputfield-background-success;
+    }
+  }
+}
+
+.InputfieldIsHighlight {
+  &:not(.InputfieldNoBorder) {
+    background: @pw-inputfield-background-highlight;
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      background: @pw-inputfield-background-highlight;
+    }
+  }
+}
+
+.InputfieldIsSecondary {
+  &:not(.InputfieldNoBorder, .InputfieldWrapper) {
+    background: @pw-inputfield-background-secondary;
+  }
+}
+
+.InputfieldIsWarning {
+  &:not(.InputfieldNoBorder) {
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      background: @pw-inputfield-background-warning;
+    }
+  }
+}
+
+.InputfieldStateError,
+.InputfieldIsDanger,
+.InputfieldIsError {
+  &:not(.InputfieldNoBorder) {
+    > .InputfieldHeader,
+    > .InputfieldContent {
+      background: var(--pw-alert-danger);
+      color: var(--pw-text-color);
+    }
+  }
+}
+
+.InputfieldFieldset.InputfieldIsColor .Inputfield:not(.InputfieldIsColor) {
+  background-color: transparent;
+}
+
+.InputfieldFieldset.InputfieldIsColor .Inputfield:not(.InputfieldIsColor),
+.InputfieldIsColor:not(.InputfieldIsSecondary) + .Inputfield {
+  border-top: 1px solid;
+  border-color: var(--pw-border-color);
+  outline-color: var(--pw-border-color);
+}
+
+.InputfieldStateError > .InputfieldHeader,
+.InputfieldStateError > .InputfieldHeader:after {
+  color: light-dark(var(--pw-error-inline-text-color), var(--pw-text-color));
+}
+
+:not(.InputfieldFieldset) > .InputfieldContent > .Inputfields > .InputfieldMarkup.InputfieldHeaderHidden:not(.InputfieldNoBorder, .InputfieldWrapper),
+.InputfieldForm > .Inputfields > .InputfieldMarkup.InputfieldHeaderHidden:not(.InputfieldNoBorder, .InputfieldWrapper) {
+  outline: 1px solid var(--pw-border-color);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Inputfield.InputfieldIsColor,
+.Inputfield.InputfieldIsColor.InputfieldNoBorder {
+  outline: 1px solid var(--pw-border-color);
+}

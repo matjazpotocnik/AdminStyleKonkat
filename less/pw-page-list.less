@@ -1,0 +1,392 @@
+/** pw-page-list */
+
+@pw-page-list-icon-color: var(--pw-text-color);
+@pw-page-list-muted-text-color: @global-muted-color;
+@pw-page-list-link-active-color: @global-link-color;
+@pw-page-list-link-open-color: var(--pw-text-color);
+@pw-page-list-link-open-text-decoration: none;
+@pw-page-list-status-icon-color: @pw-page-list-muted-text-color;
+@pw-page-list-line-height: 1.6em;
+@pw-page-list-padding-small: 2px 3px 2px 5px;
+@pw-page-list-indent: 1.5em;
+@pw-page-list-indent-small: 0.75em;
+@pw-page-list-action-link-color: var(--pw-muted-color);
+@pw-page-list-action-link-hover-color: var(--pw-text-color);
+@pw-page-list-action-link-font-size: max(13px, 0.8125rem);
+@pw-page-list-action-link-font-weight: 400;
+@pw-page-list-action-link-padding: 0 6px;
+@pw-page-list-action-link-margin: 0 3px 0 0;
+@pw-page-list-toggle-closed-color: var(--pw-text-color);
+@pw-page-list-toggle-open-color: var(--pw-text-color);
+
+.PageListPage,
+.PageListItem a span {
+  color: var(--pw-text-color);
+}
+.PageListNumChildren {
+  opacity: 0.5;
+}
+.PageListRoot {
+  > .PageList .PageList {
+    margin-left: @pw-page-list-indent;
+  }
+  > .PageListRootHidden > .PageList {
+    margin-left: 0;
+  }
+}
+
+.PageList {
+  .PageListStatusIcon {
+    color: @pw-page-list-muted-text-color;
+    font-size: 0.875em;
+    margin-right: 0;
+    margin-left: 4px;
+  }
+
+  a.PageListPage span {
+    color: inherit;
+  }
+
+  // Actions: like the "|edit|view|new" in the PageList
+  .PageListActions,
+  .PageListerActions {
+    position: relative;
+    top: -1px;
+    padding-left: 0;
+    line-height: 1.4;
+    > li {
+      border: none;
+      padding: 0;
+      margin: @pw-page-list-action-link-margin;
+    }
+  }
+  
+  .ProcessListerTable tr.open {
+    &, > td {
+      background: var(--pw-main-background);
+    }
+    > td:first-child {
+      padding-left: 10px !important;
+      a.actions_toggle {
+        color: var(--pw-main-color);
+      }
+    }
+  }
+
+  :is(.PageListActions, .PageListerActions, .PageListMoveNote) a {
+    // action links
+    color: @pw-page-list-action-link-color;
+    padding: @pw-page-list-action-link-padding;
+    font-size: @pw-page-list-action-link-font-size;
+    font-weight: @pw-page-list-action-link-font-weight;
+    line-height: 1.4;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    translate: 0 1px;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: @pw-page-list-action-link-hover-color;
+        text-decoration: none;
+      }
+    }
+  }
+  .PageListerActions a {
+    margin-left: -1px;
+    &.PageExtras {
+      opacity: 0.7;
+    }
+  }
+
+  .PageListMoveNote {
+    cursor: move;
+    a {
+      outline: 1px solid;
+      padding: 0.05em .65em;
+      margin: 0 .5em;
+      border-radius: var(--pw-button-radius);
+    }
+  }
+
+  .PageListActionMore a {
+    margin-top: 0.25em;
+  }
+
+  .PageListSelectName {
+    margin-right: 0.5em;
+    i {
+      margin-right: 0.25em;
+    }
+  }
+
+   //PageListItem
+  .PageListItem {
+    position: relative;
+    span.PageListNote {
+      background-color: var(--pw-notes-background);
+      color: var(--pw-muted-color) !important;
+      font-size: .875rem;
+      padding: .1em .5em .1em .2em;
+      margin-left: 0.5em;
+    }
+
+    .PageListActions {
+      padding-left: 0.5em;
+      &.actions {
+        display: inline-block !important;
+      }
+    }
+
+    &:not(:hover) .PageListActions.actions {
+      opacity: 0 !important;
+      display: none !important;
+    }
+    &:not(:hover):has(a:focus-visible) .PageListActions.actions {
+      opacity: 1 !important;
+      display: block !important;
+    }
+
+    .PageListActionFilter {
+      &:not(.PageListActionFilterActive) > a {
+        background-color: var(--pw-inputs-background);
+        color: var(--pw-text-color);
+        font-weight: normal;
+      }
+      &.PageListActionFilterActive > a {
+        color: var(--pw-blocks-background);
+        background-color: var(--pw-main-color);
+      }
+    }
+
+    &:has(:focus-visible) {
+      background-color: var(--pw-blocks-background);
+    }
+    &.PageListSortItem {
+      background: var(--pw-notes-background);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover .PageListActions.actions {
+        opacity: 1;
+      }
+      &:not(.PageListSortItem):hover {
+        background: var(--pw-blocks-background);
+      }
+    }
+    
+    > a.PageListPage {
+      line-height: @pw-page-list-line-height;
+
+      &:active {
+        color: @pw-page-list-link-active-color;
+      }
+      
+      &:before {
+        content: " ";
+        font-family: fontAwesome;
+        color: var(--pw-muted-color);
+        margin-right: 4px;
+      }
+      
+      i {
+        // icon
+        padding: 0 0.25em 0 0;
+        color: @pw-page-list-icon-color;
+
+        &.PageListStatusIcon {
+          color: @pw-page-list-status-icon-color;
+        }
+      }
+    }
+    
+    .PageListNumChildren {
+      font-size: @pw-page-list-action-link-font-size;
+      color: var(--pw-text-color);
+    }
+
+    .PageListLoading {
+      height: 0;
+      opacity: 0;
+      position: absolute;
+      top: .55em;
+      left: -1.25em;
+    }
+    &.PageListItemOpen > .PageListLoading {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    > a.PageListPage:hover,
+    &.PageListItemHover > a.PageListPage,
+    &.PageListItemOpen > a.PageListPage {
+      color: @pw-page-list-link-open-color;
+      text-decoration: @pw-page-list-link-open-text-decoration;
+    }
+  }
+
+  .PageListStatusHidden {
+    > a.PageListPage {
+      color: var(--pw-muted-color) !important;
+    }
+  }
+
+  .PageListStatusTemp:not(.PageListItemOpen) {
+    > a.PageListPage {
+      opacity: 0.3;
+    }
+  }
+
+  .PageListItemOpen.PageListNoChildren + .PageListPlaceholder {
+    > .PageListPlaceholderItem {
+      background-color: transparent !important;
+      height: auto;
+      min-height: 1.5rem;
+      &:after {
+        content: "--------";
+        color: var(--pw-border-color);
+      }
+    }
+    &:has(.PageListSortPlaceholder) .PageListPlaceholderItem {
+      display: none;
+    }
+  }
+}
+
+.PageListPage.label > i.icon,
+.PageList .PageListItem > a.PageListPage.label > i {
+  color: inherit;
+}
+
+.PageList .PageListItem > a.PageListPage > i.icon {
+  translate: 0 -1px;
+}
+
+// pagination in page lists
+.PageList > .uk-pagination {
+  //margin: 5px 0 0 1px;
+  margin: 0 0 0 1px;
+
+  li {
+    font-size: @pw-page-list-action-link-font-size;
+    &.uk-disabled {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  
+  a {
+    // ProcessPageList.css resets all PageList link borders with !important.
+    border: 1px solid var(--pw-border-color) !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 6px;
+    line-height: 1;
+  }
+  
+ .PageListLoading {
+   display: inline-block;
+ }
+}
+
+.PageListSelectHeader .PageListActions {
+  padding-left: 4px;
+}
+
+// smaller version of page list for narrow widths
+body.pw-narrow-width {
+  .PageListRoot > .PageList .PageList {
+    margin-left: @pw-page-list-indent-small;
+  }
+  .PageList .PageListItem {
+    padding: @pw-page-list-padding-small;
+  }
+}
+
+// tree menus
+.uk-nav a,
+.pw-dropdown-menu a {
+  .PageListStatusUnpublished {
+    text-decoration: line-through;
+  }
+
+  .PageListStatusNotEditable {
+    cursor: not-allowed;
+  }
+}
+
+// applies only to normal (non-narrow) versions of page list
+body:not(.pw-narrow-width) {
+  // page list open/close icons
+  .PageList .PageListItem {
+
+    &.PageListItemOpen.PageListHasChildren > a.PageListPage:before,
+    &.PageListHasChildren:not(.PageListItemOpen) > a.PageListPage:before,
+    &.PageListNoChildren > a.PageListPage:before {
+      font-size: 14px;
+      line-height: 12px;
+      width: 10px;
+      display: inline-block;
+    }
+
+    &.PageListItemOpen.PageListHasChildren > a.PageListPage:before {
+      content: "\f107";
+      position: relative;
+      color: @pw-page-list-toggle-open-color;
+      left: 1px;
+    }
+
+    &.PageListHasChildren:not(.PageListItemOpen) > a.PageListPage:before {
+      content: "\f105";
+      color: @pw-page-list-toggle-closed-color;
+      position: relative;
+      left: 3px;
+      top: -1px;
+    }
+
+    &.PageListNoChildren > a.PageListPage:before {
+      overflow: hidden;
+    }
+
+    &.PageListStatusHidden,
+    &.PageListStatusHidden.PageListItemOpen.PageListHasChildren > a.PageListPage:before,
+    &.PageListStatusHidden.PageListHasChildren:not(.PageListItemOpen) > a.PageListPage:before {
+      color: var(--pw-muted-color);
+    }
+    &.PageListItemOpen.PageListNoChildren > a.PageListPage:before {
+      content: "\f107";
+      color: var(--pw-muted-color);
+    }
+  }
+}
+
+body:not(.pw-narrow-width).icons-fa6 {
+	.PageList .PageListItem {
+		&.PageListHasChildren:not(.PageListItemOpen) > a.PageListPage:before,
+		&.PageListItemOpen.PageListHasChildren > a.PageListPage:before {
+			font-size: 12px;
+		}
+	}
+}
+
+.PageList .PageListNumChildren,
+.PageList .PageListItemOpen span.PageListNote,
+.PageListItemOpen span.PageListNote,
+.PageListSorting .PageListSortItem span.PageListMoveNote {
+  padding-left: 0.35em;
+}
+.PageListSortPlaceholder {
+  min-height: 1.5rem;
+  width: 100% !important;
+  background-color: var(--pw-notes-background) !important;
+  border-left: none !important;
+}
+.PageListSortItem > a.PageListPage {
+  background-color: transparent;
+}
+.InputfieldPageTable .PageListStatusHidden td {
+  opacity: 0.67;
+}

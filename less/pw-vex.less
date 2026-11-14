@@ -1,0 +1,60 @@
+/** pw-vex */
+
+.vex-dialog-button,
+.vex-dialog-button-primary.vex-dialog-button.vex-first,
+.vex.vex-theme-default .vex-dialog-button.vex-dialog-button-primary.vex-dialog-button {
+  background-color: var(--pw-button-background);
+  color: var(--pw-button-color);
+  text-transform: none;
+}
+
+.vex-dialog-button-secondary.vex-dialog-button,
+.vex-dialog-button-secondary.vex-dialog-button.vex-last,
+.vex.vex-theme-default .vex-dialog-button.vex-dialog-button-secondary {
+  background-color: var(--pw-button-muted-background);
+  color: var(--pw-button-muted-color);
+}
+
+.vex-dialog-button:focus {
+  background-color: var(--pw-button-hover-background);
+  color: var(--pw-button-hover-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vex-dialog-button-secondary.vex-dialog-button:not(:disabled):hover,
+  .vex-dialog-button-secondary.vex-dialog-button.vex-last:not(:disabled):hover,
+  .vex.vex-theme-default .vex-dialog-button.vex-dialog-button-secondary:not(:disabled):hover,
+  .vex.vex-theme-default .vex-dialog-button.vex-dialog-button-primary.vex-dialog-button:not(:disabled):hover {
+    background-color: var(--pw-button-hover-background);
+    color: var(--pw-button-hover-color);
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.vex-dialog-button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem !important;
+}
+
+.vex-dialog-button,
+.vex.vex-theme-default .vex-dialog-button {
+  border-radius: var(--pw-button-radius);
+}
+
+.vex-overlay {
+  background: var(--pw-modal-color);
+}
+
+.vex.vex-theme-default.vex-theme-default .vex-dialog-form .vex-dialog-input :is(textarea, input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"]):focus {
+  box-shadow: inset 0 0 0 2px var(--pw-main-color);
+}
+
+.vex .vex-content,
+.vex.vex-theme-default .vex-content {
+  background-color: var(--pw-main-background);
+  color: var(--pw-text-color);
+  border-radius: 0;
+  border: 1px solid var(--pw-border-color);
+}

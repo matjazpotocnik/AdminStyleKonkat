@@ -1,0 +1,139 @@
+/** pw-dropdown */
+
+// PW dropdown menus (jQuery UI menu with a UIkit dropdown look)
+@pw-dropdown-link-padding-horizontal: @dropdown-padding;
+@pw-dropdown-link-padding-vertical: 0.5em;
+@pw-dropdown-masthead-row-height: 2.5em;
+@pw-dropdown-action-row-selectors: ~".pw-pagelist-show-all, .pw-nav-add:last-child, .separator:not(:first-child):last-child";
+
+#pw-mastheads[id],
+#offcanvas-nav .uk-offcanvas-bar {
+  background-color: var(--pw-masthead-background);
+  color: var(--pw-masthead-active-color);
+  border-color: var(--pw-masthead-border-color) !important; // the sidebar sets `border-right … !important` elsewhere
+}
+
+.ui-menu .uk-nav-header {
+  padding: @pw-dropdown-link-padding-vertical @pw-dropdown-link-padding-horizontal;
+}
+
+.ui-menu .pw-has-items-icon {
+  float: right;
+  margin: 4px 0 0 6px;
+}
+
+.ui-menu .ui-menu-item a small {
+  color: var(--pw-muted-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pw-dropdown-menu[data-at="left bottom"] .ui-menu-item a:hover {
+    background: var(--pw-masthead-menu-item-background-hover);
+  }
+}
+
+// Ajax-loaded lists (Fields, Templates, …)
+.navJSON .ui-menu-item:not(.add, .highlight) > a {
+  padding-block: 0.25em;
+}
+
+.navJSON .ui-menu-item:is(.add, .highlight) > a {
+  border-bottom: 1px solid var(--pw-border-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navJSON .ui-menu-item.add > a:hover,
+  .pw-dropdown-menu[data-at="left bottom"] .navJSON .ui-menu-item.add > a:hover {
+    border-bottom-color: transparent;
+  }
+}
+
+// Group dividers
+.ui-menu .ui-menu-item.separator:not(.highlight) {
+  margin-top: 0.25em;
+  padding-top: 0.25em;
+  border-top: 1px solid var(--pw-border-color);
+}
+
+.ui-menu .ui-menu-item.separator:not(.highlight):first-child,
+.ui-menu .add + .ui-menu-item.separator {
+  margin-top: 0;
+  border-top: 0;
+}
+
+// Action rows: Show all, New, trailing separators
+.ui-menu .ui-menu-item:is(@{pw-dropdown-action-row-selectors}) {
+  margin-top: 10px;
+  padding: 0;
+
+  > a {
+    padding: 10px @pw-dropdown-link-padding-horizontal;
+  }
+}
+
+.ui-menu .ui-menu-item.pw-pagelist-show-all + .ui-menu-item.pw-nav-add {
+  margin-top: 0;
+}
+
+.ui-menu > .add:first-child {
+  margin-bottom: 8px;
+}
+
+// Placement: masthead menus are fixed to the viewport
+.pw-dropdown-menu[data-at="left bottom"],
+.pw-dropdown-menu[data-at="left bottom"] .ui-menu,
+.pw-dropdown-menu-shorter.ui-autocomplete {
+  position: fixed !important;
+  overflow-y: auto;
+  max-height: calc(100vh - 70px);
+  margin-top: -1px !important;
+}
+
+// Masthead palette also covers panels appended to <body>.
+.pw-dropdown-menu[data-at="left bottom"] {
+  &,
+  .ui-menu {
+    background: var(--pw-masthead-background);
+    color: var(--pw-masthead-active-color);
+    border-color: var(--pw-masthead-border-color);
+  }
+
+  .ui-menu-item a small {
+    color: var(--pw-masthead-text-color);
+  }
+
+  .ui-menu-item a:is(.uk-active, .on, :focus, :focus-visible, .ui-state-focus, .ui-state-active) {
+    background: var(--pw-masthead-menu-item-background-hover);
+  }
+
+  .navJSON .ui-menu-item:is(.add, .highlight) > a {
+    border-bottom-color: var(--pw-masthead-border-color);
+  }
+
+  .ui-menu-item.separator:not(.highlight) {
+    border-top-color: var(--pw-masthead-border-color);
+  }
+
+  > .ui-menu-item > a {
+    height: @pw-dropdown-masthead-row-height;
+  }
+
+  .ui-menu-item.add > a,
+  .ui-menu:not(.navJSON) > .ui-menu-item:first-child > a {
+    height: ~"calc(2.5em - 1px); ";
+  }
+}
+
+.pw-dropdown-menu {
+  z-index: 150 !important;
+} // .ui-front and .ui-autocomplete use !important z-indexes
+
+// Compact variant for ajax search results
+.pw-dropdown-menu-shorter.ui-autocomplete {
+  padding-block: 20px;
+  top: 57px !important; // jQuery UI writes an inline top
+}
+
+.pw-dropdown-menu-shorter .ui-menu-item a {
+  padding-block: 0;
+}

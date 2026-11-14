@@ -1,0 +1,384 @@
+/** pw-admin-design */
+
+@pw-masthead-height: 80px; // note: must also be updated in _masthead.php "data-pw-height" attribute 
+@pw-masthead-shell-height: 56px;
+
+@pw-masthead-unit: 2rem;
+@pw-logo-link-max-width: 5.5rem;
+@pw-search-expanded-max: 22rem;
+@pw-search-font-size: 0.9375rem;
+@pw-search-shortcut-inset: 0.625rem;
+@pw-search-panel-top: 2.625rem;
+@pw-search-panel-side: 1.25rem;
+@pw-search-panel-bottom: 0.3125rem;
+
+*, *:before, *:after, .pw-container {
+  // Note: Uikit overrides this in some cases
+  box-sizing: border-box;
+}
+
+html, body {
+  background: var(--pw-main-background);
+  min-height: 100vh;
+}
+html:has(body.modal-inline),
+body.modal-inline {
+  background-color: transparent;
+  min-height: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.pw-wrap {
+  background: var(--pw-blocks-background);
+  border: 1px solid var(--pw-border-color);
+  padding: var(--pw-spacing);
+  margin-bottom: var(--pw-spacing);
+}
+
+#main {
+  width: 100%;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+.modal #main.pw-container {
+  margin-top: 2em;
+}
+
+// masthead
+#pw-mastheads {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  height: @pw-masthead-shell-height;
+}
+#pw-mastheads a:focus-visible,
+#pw-mastheads label > :focus-visible {
+  outline-color: var(--pw-masthead-logo-color);
+}
+#pw-masthead,
+#pw-masthead-mobile {
+  height: @pw-masthead-shell-height;
+  // background-color: var(--pw-text-color);
+  background: none;
+  z-index: 100 !important;
+}
+#pw-masthead-mobile {
+  display: flex;
+  align-items: center;
+}
+#pw-masthead-mobile > .pw-container {
+  margin-left: 0;
+}
+#pw-masthead.pw-masthead-hidden {
+  width: 100%;
+  overflow: clip;
+}
+@media (max-width: 639px) {
+  #pw-masthead {
+    display: none;
+  }
+}
+:is(#pw-masthead, #pw-masthead-mobile, #pw-footer, #notices) .uk-container,
+#main:is(.uk-container, .pw-container),
+#main > :is(.uk-container, .pw-container) {
+  padding-left: var(--pw-admin-gutter);
+  padding-right: var(--pw-admin-gutter);
+}
+#pw-masthead,
+#pw-masthead-mobile {
+  border-bottom: 1px solid var(--pw-masthead-border-color);
+}
+#pw-masthead .uk-navbar-nav > li,
+#pw-masthead .uk-navbar-nav > li > a,
+.pw-search-form .uk-form-icon,
+.pw-search-form .pw-search-input::placeholder {
+  color: var(--pw-masthead-text-color);
+}
+#pw-masthead .uk-navbar-nav > li i {
+  color: inherit;
+}
+#pw-masthead .uk-navbar-nav > li.uk-active,
+#pw-masthead .uk-navbar-nav > li.uk-active > a {
+  color: var(--pw-masthead-active-color);
+}
+#pw-masthead:before {
+  content: "";
+  background-color: inherit;
+  position: fixed;
+  display: block;
+  width: 100%;
+  // MP: Keep the existing two-pixel inset tied to the shell height.
+  // height: 54px;
+  height: @pw-masthead-shell-height - 2px;
+  pointer-events: none;
+  top: 0;
+}
+
+// PW/brand logo
+.pw-logo {
+  max-height: 3.125rem;
+}
+.pw-logo-link {
+  display: block;
+  position: relative;
+  z-index: 1;
+  max-width: @pw-logo-link-max-width;
+  margin: auto;
+}
+.pw-logo-link,
+#pw-mastheads .pw-logo-link {
+  color: var(--pw-masthead-logo-color);
+}
+@media (hover: hover) and (pointer: fine) {
+  .pw-logo-link:hover,
+  #pw-mastheads .pw-logo-link:hover {
+    color: var(--pw-masthead-logo-color);
+  }
+  img.pw-logo-native:hover {
+    filter: brightness(0.85);
+  }
+}
+.pw-logo-link svg {
+  display: block;
+  min-width: @pw-masthead-unit;
+  min-height: @pw-masthead-unit;
+}
+.pw-logo-native {
+  width: @pw-masthead-unit;
+  height: @pw-masthead-unit;
+}
+img.pw-logo {
+  max-height: @pw-masthead-unit;
+  display: block;
+}
+
+// search form/input
+.pw-search-form {
+  position: relative;
+}
+.pw-search-form .pw-search-input {
+  background-color: var(--pw-masthead-input-background);
+  color: var(--pw-masthead-input-color);
+  border-color: var(--pw-masthead-input-border);
+  border-radius: 9999px;
+  font-size: @pw-search-font-size;
+  padding-right: 0.5rem;
+}
+// Match UIkit's icon-sibling specificity and override its important 40px padding.
+.pw-search-form .uk-form-icon ~ .pw-search-input {
+  padding-left: @pw-masthead-unit !important;
+}
+.pw-search-form .uk-form-icon {
+  width: @pw-masthead-unit;
+  max-width: @pw-masthead-unit;
+}
+.pw-search-form:after {
+  content: attr(data-shortcut);
+  position: absolute;
+  right: @pw-search-shortcut-inset;
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--pw-masthead-text-color), transparent 40%);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  opacity: 0;
+}
+.uk-offcanvas-bar .pw-search-form:after {
+  right: @pw-search-panel-side + @pw-search-shortcut-inset;
+  top: calc((100% + @pw-search-panel-top - @pw-search-panel-bottom) / 2);
+}
+.pw-search-form:has(input:focus:placeholder-shown):after {
+  opacity: 1;
+}
+.pw-search-form .pw-search-input::placeholder {
+  transition: opacity 0.25s ease;
+}
+#offcanvas-nav .pw-search-form {
+  padding: @pw-search-panel-top @pw-search-panel-side @pw-search-panel-bottom;
+}
+#offcanvas-nav .pw-search-form .uk-inline,
+#offcanvas-nav .pw-search-form .pw-search-input {
+  width: 100%;
+}
+#pw-masthead .pw-search-form .pw-search-input {
+  height: @pw-masthead-unit;
+  width: min(35vw, @pw-search-expanded-max);
+  max-width: min(35vw, @pw-search-expanded-max);
+  transition:
+    max-width 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    opacity 0.25s ease;
+  box-shadow: -12px 0px 12px 0px color-mix(in srgb, var(--pw-text-color), transparent 90%);
+}
+#offcanvas-nav .pw-search-form .pw-search-input {
+  height: @pw-masthead-unit;
+}
+#pw-masthead .pw-search-form {
+  position: absolute;
+  right: 0;
+}
+#pw-masthead .uk-navbar-right {
+  padding-right: @pw-masthead-unit + 0.75rem;
+}
+#pw-masthead .pw-search-form .pw-search-input:not(:focus) {
+  max-width: @pw-masthead-unit;
+  padding-left: 0 !important;
+  padding-right: 0;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+  color: transparent;
+  opacity: 0;
+}
+#pw-masthead .pw-search-form .pw-search-input:not(:focus)::selection {
+  background-color: transparent;
+}
+.pw-search-form .pw-search-input:not(:focus)::placeholder {
+  opacity: 0;
+}
+
+.pw-nav-icon {
+  margin-right: 5px !important;
+}
+.pw-user-nav .fa-lg {
+  // user icon in masthead
+  position: relative;
+  top: 0;
+}
+
+// footer
+#pw-footer {
+  border-color: var(--pw-border-color);
+}
+#pw-footer p:empty {
+  display: none;
+}
+
+// debug info from /wire/templates-admin/debug.inc
+#debug_toggle {
+  color: var(--pw-text-color);
+}
+#debug {
+  background: var(--pw-main-background);
+  min-height: 100vh;
+  padding: 15px;
+  display: none;
+}
+#debug pre {
+  background: var(--pw-inputs-background);
+}
+#debug.ui-accordion.ui-widget .ui-accordion-header {
+  border: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease 0.25s;
+  padding-left: 0.635em;
+}
+#debug.ui-accordion.ui-widget .ui-accordion-header.ui-state-hover {
+  background-color: var(--pw-blocks-background);
+}
+#debug.ui-accordion.ui-widget .ui-accordion-header-active {
+  border-bottom: 1px solid var(--pw-border-color);
+  transition-delay: 0s;
+}
+
+// Pop-out panel for PageList, PageView, debug, etc. 
+.pw-panel-container {
+  &.ui-resizable {
+    position: fixed; // .ui-resizable otherwise replaces the panel's viewport positioning.
+  }
+
+  .pw-panel-button.ui-button {
+    top: 100px !important;
+    translate: -3px 0;
+    &, i.fa {
+      background: var(--pw-inputs-background);
+      background-color: var(--pw-main-background) !important;
+      color: var(--pw-text-color);
+      text-transform: none;
+    }
+    padding: 3px 11px 3px 11px !important;
+	
+    small.ui-button-text {
+      > span {
+        display: none;
+        color: @button-primary-color;
+        font-size: @global-font-size;
+        text-transform: uppercase;
+      }
+    }
+    i.fa {
+      font-size: 16px;
+      &:has(+ span) {
+        transform: translate(4px, -2px) scale(0.9);
+      }
+    }
+  }
+
+  &:has(> iframe) .pw-panel-button.ui-button {
+    &, i.fa {
+      background-color: var(--pw-blocks-background) !important;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      i.fa:hover, &:hover {
+        background-color: var(--pw-blocks-background) !important;
+      }
+    }
+  }
+}
+.pw-panel .fa-tree::before {
+  content: "\f0e8";
+}
+.pw-panel-button .fa {
+  background: transparent;
+  translate: -3px 0;
+  display: block;
+}
+.pw-panel-button .fa::before {
+  content: "\00D7";
+  font-family: inherit;
+  font-size: 30px;
+}
+
+// modal window
+body.modal {
+  .InputfieldForm {
+    margin-top: @global-margin;
+  }
+}
+
+// sidenav
+body.pw-layout-sidenav {
+  .pw-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #pw-masthead {
+    .pw-logo {
+      height: 40px;
+    }
+    .uk-navbar-nav > li > a {
+      height: 60px;
+    }
+    .uk-breadcrumb {
+      margin-left: @global-margin;
+    }
+  }
+}
+body.pw-layout-sidenav-side {
+  #pw-sidenav-bar {
+    padding-top: 0 !important;
+  }
+}
+
+.WireTabs,
+#ProcessPageEdit #PageEditTabs {
+  margin-bottom: 0;
+}

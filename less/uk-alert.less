@@ -1,0 +1,19 @@
+/** uk-alert */
+@alert-background: var(--pw-blocks-background);
+@alert-color: var(--pw-text-color);
+@alert-primary-background: var(--pw-alert-primary);
+@alert-primary-color: var(--pw-text-color);
+@alert-warning-background: var(--pw-alert-warning);
+@alert-warning-color: var(--pw-text-color);
+@alert-success-background: var(--pw-alert-success);
+@alert-success-color: var(--pw-text-color);
+@alert-danger-background: var(--pw-alert-danger);
+@alert-danger-color: var(--pw-alert-text-color);
+
+.hook-alert() { border: 1px solid var(--pw-border-color); }
+
+.hook-alert-misc() {
+    .uk-alert-success:where(.uk-alert-warning):not(:where(.uk-alert-danger)) {
+        background: @alert-success-background;
+    }
+}

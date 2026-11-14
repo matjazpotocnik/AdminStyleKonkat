@@ -1,0 +1,179 @@
+/** uk-form */
+
+@form-color: var(--pw-text-color);
+@form-border: var(--pw-border-color);
+@form-focus-color: var(--pw-text-color);
+@form-focus-border: var(--pw-border-color);
+@form-disabled-background: var(--pw-inputs-background);
+@form-disabled-color: var(--pw-text-color);
+@form-disabled-border: var(--pw-border-color);
+@form-placeholder-color: var(--pw-muted-color);
+@form-select-option-color: var(--pw-text-color);
+@form-blank-focus-border: var(--pw-border-color);
+@form-radio-border: var(--pw-border-color);
+@form-radio-disabled-icon-color: #999;
+@form-select-disabled-icon-color: #999;
+@form-danger-color: var(--pw-text-color);
+@form-success-color: var(--pw-text-color);
+@form-danger-border: var(--pw-border-color);
+@form-success-border: var(--pw-border-color);
+@form-icon-color: var(--pw-text-color);
+@form-icon-hover-color: var(--pw-main-color);
+@form-label-color: var(--pw-text-color);
+
+.hook-form() { background-color: var(--pw-inputs-background); }
+.hook-form-danger() { background-color: var(--pw-alert-danger); }
+.hook-form-success() { background-color: var(--pw-alert-success); }
+
+.hook-form-misc() {
+  .uk-checkbox:where(:not(:checked, :indeterminate, :disabled)) {
+    border-color: var(--pw-muted-color);
+  }
+  .uk-checkbox:focus { border-color: var(--pw-main-color) !important; }
+  .uk-checkbox:checked,
+  .uk-checkbox:indeterminate {
+    background-color: var(--pw-main-color);
+    border-color: var(--pw-border-color);
+  }
+  .uk-checkbox:indeterminate {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23fff%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E');
+  }
+  .uk-checkbox:checked:focus {
+    background-color: color-mix(in srgb, var(--pw-main-color), var(--pw-text-color) 20%) !important;
+  }
+  .uk-radio {
+    transition: none;
+  }
+  .uk-radio:where(:not(:checked, :disabled)),
+  .uk-radio:focus:where(:not(:checked, :disabled)),
+  .uk-radio:is(.focus, :focus-visible):where(:not(:checked, :disabled)) {
+    border-color: var(--pw-muted-color);
+  }
+  // Focused checked weight is needed against mixed blank/status focus borders.
+  .uk-radio:checked,
+  .uk-radio:is(.focus, :focus-visible):checked {
+    border-color: var(--pw-main-color);
+  }
+  .uk-radio:checked {
+    // Keep the checked fill with its image; later disabled and keyboard states still win.
+    background-color: var(--pw-main-color) !important;
+    background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E) !important;
+  }
+  .uk-radio:focus-visible:checked {
+    background-color: color-mix(in srgb, var(--pw-main-color), var(--pw-text-color) 10%) !important;
+  }
+  input[type="radio"]:focus-visible:checked:where(:not(.uk-radio)) {
+    background-color: color-mix(in srgb, var(--pw-main-color), var(--pw-text-color) 10%) !important;
+  }
+  .uk-checkbox:disabled,
+  .uk-radio:disabled {
+    background-color: var(--pw-inputs-background) !important;
+    border-color: var(--pw-border-color);
+  }
+  .uk-checkbox:checked:disabled,
+  .uk-radio:checked:disabled {
+    background-color: var(--pw-muted-color) !important;
+    border-color: var(--pw-border-color);
+  }
+  .uk-form-danger:focus,
+  .uk-form-success:focus,
+  .uk-form-blank:focus { border-color: var(--pw-border-color); }
+  .uk-form-danger { .hook-form-danger(); }
+  .uk-form-success { .hook-form-success(); }
+
+  .uk-select,
+  .uk-input:where(*),
+  .uk-textarea:where(*) {
+    border-color: var(--pw-border-color);
+  }
+  .uk-select:where(:not(.uk-form-danger, .uk-form-success)) {
+    background-color: var(--pw-inputs-background);
+  }
+  .uk-select:focus:where(:not(.uk-form-danger, .uk-form-success)),
+  .uk-input:focus:where(:not(.uk-form-danger, .uk-form-success)),
+  .uk-textarea:focus:where(:not(.uk-form-danger, .uk-form-success)) {
+    background-color: var(--pw-inputs-background);
+  }
+  .uk-select:disabled {
+    color: var(--pw-muted-color);
+  }
+  .uk-select:disabled,
+  .uk-input:disabled,
+  .uk-textarea:disabled {
+    background-color: var(--pw-inputs-background);
+  }
+  .uk-select:not([multiple]):not([size]),
+  .uk-select:not([multiple]):not([size]):disabled {
+    // Draw each triangle in one tile to avoid a join between diagonal halves.
+    background-image:
+      conic-gradient(from 315deg at 50% 100%, currentColor 90deg, transparent 0),
+      conic-gradient(from 135deg at 50% 0, currentColor 90deg, transparent 0);
+    background-position: calc(100% - 8px) calc(50% + 4px), calc(100% - 8px) calc(50% - 4px);
+    background-size: 8px 4px;
+    background-repeat: no-repeat;
+  }
+
+  .uk-input:where(:not(.uk-form-danger, .uk-form-success)),
+  .uk-textarea:where(:not(.uk-form-danger, .uk-form-success)) {
+    background: var(--pw-inputs-background);
+  }
+  input:focus-visible:where(:not(.uk-button)) {
+    border-color: var(--pw-border-color);
+  }
+}
+
+input[disabled="disabled"] {
+  opacity: 0.4;
+}
+
+input:disabled,
+input:disabled + span {
+  cursor: not-allowed;
+}
+
+// because Uikit's uk-form-small excludes inputs having size attributes
+.uk-form-small:not(textarea):not([multiple]) { // :not([size]) {
+  height: @form-small-height;
+  padding-left: @form-small-padding-horizontal;
+  padding-right: @form-small-padding-horizontal;
+}
+
+// because Uikit's uk-form-large excludes inputs having size attributes
+.uk-form-large:not(textarea):not([multiple]) { // :not([size]) {
+  height: @form-large-height;
+  padding-left: @form-large-padding-horizontal;
+  padding-right: @form-large-padding-horizontal;
+}
+
+// attempt to cover entire form when from has class InputfieldFormSmallInputs
+.InputfieldFormSmallInputs {
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=button]):not([type=submit]):not([type=range]):not(.uk-form-large):not(.uk-form-medium),
+  select:not([multiple]):not(.uk-form-large):not(.uk-form-medium) {
+    font-size: @form-small-font-size;
+    height: @form-small-height;
+    padding-left: @form-small-padding-horizontal;
+    padding-right: @form-small-padding-horizontal;
+  }
+  textarea:not(.uk-form-large):not(.uk-form-medium) {
+    font-size: @form-small-font-size;
+    padding-left: @form-small-padding-horizontal;
+    padding-right: @form-small-padding-horizontal;
+  }
+}
+
+// attempt to cover entire form when from has class InputfieldFormLargeInputs
+.InputfieldFormLargeInputs {
+  input:not([type=checkbox]):not([type=radio]):not([type=hidden]):not([type=button]):not([type=submit]):not([type=range]):not(.uk-form-small):not(.uk-form-medium),
+  select:not([multiple]):not(.uk-form-small):not(.uk-form-medium) {
+    font-size: @form-large-font-size;
+    height: @form-large-height;
+    padding-left: @form-large-padding-horizontal;
+    padding-right: @form-large-padding-horizontal;
+  }
+  textarea:not(.uk-form-small):not(.uk-form-medium) {
+    font-size: @form-large-font-size;
+    padding-left: @form-large-padding-horizontal;
+    padding-right: @form-large-padding-horizontal;
+  }
+
+}

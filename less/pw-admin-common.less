@@ -1,0 +1,49 @@
+/** pw-admin-common */
+
+// Shared ProcessWire admin utilities
+.pw-bullets li,
+.pw-numbers li {
+  display: list-item;
+  list-style: disc;
+  margin: 0 0 0 1.25em;
+}
+.pw-numbers li {
+  list-style: decimal;
+}
+
+:is(img, figure, div, table):is(.pw-align-left, .align_left, .align-left) {
+  float: left;
+  margin: 0 1em .5em 0;
+}
+:is(img, figure, div, table):is(.pw-align-right, .align_right, .align-right) {
+  float: right;
+  margin: 0 0 .5em 1em;
+}
+:is(img, figure, div, table):is(.pw-align-center, .align_center, .align-center) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pw-text-main-color.pw-text-main-color {
+  color: var(--pw-main-color) !important;
+}
+
+.pw-bg-main-color.pw-bg-main-color {
+  background-color: var(--pw-main-color) !important;
+  border-color: var(--pw-main-color) !important;
+  color: var(--pw-blocks-background) !important;
+}
+
+.pw-no-select {
+  -webkit-user-select: none; // Safari still requires this in 2026
+  user-select: none;
+}
+
+.pw-user-nav > li > a > img {
+  border-radius: 50%;
+  margin: 0 4px 0 0;
+  width: 30px;
+  height: 30px;
+  vertical-align: top;
+}

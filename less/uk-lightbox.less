@@ -1,0 +1,21 @@
+/** uk-lightbox */
+
+@lightbox-background: var(--pw-modal-color);
+@lightbox-focus-outline: var(--pw-border-color);
+
+.hook-lightbox-item() { color: var(--pw-blocks-background); }
+
+.hook-lightbox-misc() {
+    .uk-lightbox-toolbar:where(*) {
+        background: var(--pw-modal-color);
+        color: var(--pw-blocks-background);
+    }
+    .uk-lightbox-toolbar > *,
+    .uk-lightbox-toolbar-icon:where(*),
+    .uk-lightbox-toolbar-icon:hover { color: var(--pw-blocks-background); }
+    .uk-lightbox-button:where(*),
+    .uk-lightbox-button:hover {
+        background: var(--pw-button-background);
+        color: var(--pw-button-color);
+    }
+}

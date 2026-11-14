@@ -1,0 +1,117 @@
+/** pw-non-core */
+
+// Non core modules
+.fm-show-buttons.fm-show-buttons {
+	color: var(--pw-text-color);
+}
+.fm-show-buttons.fm-show-buttons:hover {
+	color: var(--pw-main-color);
+}
+
+// AdminDevModeColors module
+.colorpicker {
+	z-index: 5;
+}
+
+// FormBuilder module? I don't have it, can't verify
+li.pageBreak.pageBreak .asmListItemLabel {
+	background-color: var(--pw-blocks-background);
+}
+.asmListItem.asmListItem.asmListItem.pageBreak .asmListItemEdit > *,
+.asmListItem.asmListItem.asmListItem.pageBreak > *:not(.columnWidthBar),
+.asmListItem.asmListItem.asmListItem.pageBreak .asmListItemStatus,
+.asmListItem.asmListItem.asmListItem.pageBreak .asmListItemStatus > * {
+	color: var(--pw-muted-color);
+}
+.asmListItem.asmListItem.pageBreak .asmListItemStatus > [data-was] {
+	display: none;
+}
+.InputfieldFormBuilderPageBreak.InputfieldFormBuilderPageBreak .InputfieldContent {
+	border-bottom: none;
+}
+
+// AdminHelperLinks module
+.ahl:is(.ahl),
+.ahl__template:is(.ahl__template),
+.ahl__template:is(.ahl__template) *,
+.ahl__hover-content:is(.ahl__hover-content),
+.ahl__hover-content:is(.ahl__hover-content) *,
+.ahl__link:is(.ahl__link),
+.ahl__link:is(.ahl__link) i {
+	color: var(--pw-muted-color) !important;
+	opacity: 1 !important;
+}
+.ahl__template-name {
+	font-size: @global-small-font-size;
+	white-space: nowrap;
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.ahl--init .toggle-icon {
+	background: transparent;
+}
+.ahl--init > .InputfieldHeader .toggle-icon.fa-angle-down,
+.ahl--init > .InputfieldHeader.InputfieldStateToggle .toggle-icon .ahl {
+	translate: none;
+}
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .toggle-icon {
+	z-index: 3;
+}
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl__hover-content {
+	background: var(--pw-blocks-background);
+}
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl,
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl__hover-content *,
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl__link,
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl__link i,
+.uk-tab > .ahl__template .ahl__link,
+.uk-tab > .ahl__template .ahl__link i {
+	color: var(--pw-text-color) !important;
+}
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl__link i,
+.uk-tab > .ahl__template .ahl__link i {
+	font-size: @pw-inputfield-icon-size;
+}
+.ahl--init > .InputfieldHeader .toggle-icon::before,
+.ahl--init > :is(.InputfieldHeader, .InputfieldContent) .ahl__link i,
+.uk-tab > .ahl__template .ahl__link i {
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900;
+}
+.ahl--init > .InputfieldContent > .toggle-icon {
+	line-height: @global-line-height;
+}
+.ahl--init > .InputfieldContent > .toggle-icon > .ahl,
+.ahl--init > .InputfieldContent > .toggle-icon .ahl__link--edit-field {
+	margin-right: 0;
+}
+.uk-tab > .ahl__template {
+	position: absolute;
+	bottom: auto;
+	display: flex;
+}
+.uk-tab > .ahl__template > .ahl__link {
+	margin: 0;
+}
+
+// TracyDebugger module
+#tracy-show-button {
+	color: black;
+}
+
+// ProDrafts module
+body .ProDraftsNotice {
+  background: var(--pw-main-background);
+  margin-top: -3px !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid var(--pw-border-color);
+  .uk-text-small();
+}
+
+// ???
+//[style="background:#777;height:3px;width:100%;"] {
+//  display: none;
+//}

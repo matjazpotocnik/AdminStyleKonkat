@@ -1,0 +1,153 @@
+/** pw-inputfields-asmselect */
+
+.asmListItem.asmListItem > .asmListItemStatus > .columnWidth:not(.columnWidthOff) {
+  color: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .asmListItem.asmListItem > .asmListItemStatus > .columnWidth:not(.columnWidthOff):hover {
+    color: var(--pw-main-color);
+  }
+}
+
+.asmListItem .columnWidthBar {
+  background-color: var(--pw-main-color) !important;
+  z-index: 0;
+}
+
+.asmListItem.asmListItem > *:not(.columnWidthBar),
+.asmListItem.asmListItem .asmListItemEdit,
+.asmListItem.asmListItem .asmListItemEdit > *,
+.asmListItem.asmListItem .asmListItemStatus {
+  opacity: 1;
+  color: var(--pw-text-color);
+}
+
+.asmListItem .asmListItemEdit > a,
+.asmListItem .asmListItemStatus > * {
+  z-index: 1;
+  position: relative;
+}
+
+.asmContainer {
+  margin-bottom: @global-small-margin;
+}
+
+.Inputfields .InputfieldAsmSelect .asmListItem {
+  line-height: @global-line-height;
+  margin-top: 6px;
+  margin-bottom: 4px !important;
+  border-color: var(--pw-border-color);
+  outline: none;
+  box-sizing: border-box;
+  min-height: 38px;
+  .asmListItemHandle {
+    top: 9px;
+  }
+  .asmListItemRemove {
+    line-height: @global-line-height;
+    i {
+      top: 5px;
+    }
+  }
+}
+
+.InputfieldForm .Inputfields .InputfieldPageAutocomplete,
+.InputfieldForm .Inputfields .InputfieldPageListSelectMultiple {
+  ol {
+    list-style: none;
+    padding: 0;
+
+    > li {
+      list-style: none;
+      line-height: @global-line-height;
+      i {
+        top: 7px;
+      }
+    }
+
+    .itemRemove {
+      top: 3px;
+      i {
+        top: 0;
+      }
+    }
+  }
+
+  .ui-autocomplete-input {
+    padding-left: 25px;
+  }
+}
+
+.Inputfields .InputfieldPageListSelectMultiple ol li {
+  margin-top: 6px !important;
+  padding-block: 6px;
+  border-color: var(--pw-border-color);
+  outline: none;
+  box-sizing: border-box;
+  min-height: 38px;
+}
+
+.Inputfields .InputfieldPageAutocomplete ol li {
+  margin-top: 6px;
+  border-color: var(--pw-border-color);
+  outline: none;
+  box-sizing: border-box;
+  min-height: 38px;
+  padding: 3px 3px 3px 2px;
+}
+.Inputfields.Inputfields .InputfieldPageAutocomplete ol li .itemRemove {
+  top: 6px;
+}
+
+.Inputfields .InputfieldPageAutocomplete ol li.ui-state-hover {
+  background: var(--pw-main-background);
+  color: var(--pw-text-color);
+}
+.asmListItem.ui-state-hover:is(.asmListItem) {
+  background: var(--pw-blocks-background);
+  color: var(--pw-text-color);
+}
+
+.Inputfields .InputfieldAsmSelect .asmListItem.asmListItemDeleted,
+.Inputfields .InputfieldAsmSelect .asmListItem.asmListItemDeleted > * {
+  opacity: 1 !important;
+  border-color: var(--pw-error-inline-text-color);
+  color: var(--pw-error-inline-text-color);
+  background-color: var(--pw-alert-danger);
+}
+
+.Inputfields .InputfieldAsmSelect .asmListItem.ui-state-hover {
+  background-color: var(--pw-main-background);
+  border-color: var(--pw-border-color);
+  color: var(--pw-text-color);
+}
+
+.asmListItemLabel.asmListItemLabel,
+.asmListItemStatus.asmListItemStatus {
+  padding: 0.35em;
+}
+
+span.asmListItemDesc.asmListItemDesc {
+  padding-top: 5px;
+}
+
+.asmListItemStatus.asmListItemStatus {
+  padding-top: 0.48em;
+}
+
+.asmListItem.asmListItem.rowStart:before {
+  border-top-color: var(--pw-main-color);
+  color: var(--pw-blocks-background);
+}
+
+.asmListItem.asmListItem.rowStop:not(.rowStart):before {
+  border-bottom: 5px solid var(--pw-muted-color);
+  color: var(--pw-blocks-background);
+}
+
+.Inputfields .asmFieldset,
+.pw-content .Inputfields .asmFieldset,
+#content .Inputfields .asmFieldset {
+  font-weight: 600;
+}

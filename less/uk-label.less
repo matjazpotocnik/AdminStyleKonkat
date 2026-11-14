@@ -1,0 +1,20 @@
+/** uk-label */
+
+@label-background: transparent;
+@label-color: light-dark(var(--pw-blocks-background), var(--pw-text-color));
+@label-success-background: var(--pw-alert-success);
+@label-success-color: var(--pw-text-color);
+@label-warning-background: var(--pw-alert-warning);
+@label-warning-color: var(--pw-text-color);
+@label-danger-background: var(--pw-error-inline-text-color);
+@label-danger-color: light-dark(var(--pw-blocks-background), var(--pw-text-color));
+
+.uk-label:where(*) { color: @label-color !important; }
+.uk-label.uk-label-success { background-color: @label-success-background; color: @label-success-color !important; }
+.uk-label.uk-label-warning { background-color: @label-warning-background; color: @label-warning-color !important; }
+.uk-label.uk-label-danger { background-color: @label-danger-background; color: @label-danger-color !important; }
+.hook-label-misc() {
+    .uk-label:where(:not(.uk-text-success, .uk-text-warning, .uk-text-danger, .uk-text-background)) {
+        background: var(--pw-main-color);
+    }
+}

@@ -1,0 +1,33 @@
+/** uk-tile */
+
+@tile-default-background: var(--pw-blocks-background);
+@tile-muted-background: var(--pw-inputs-background);
+@tile-primary-background: var(--pw-main-color);
+@tile-secondary-background: var(--pw-secondary-background);
+
+.hook-tile-default() { background: @tile-default-background; }
+.hook-tile-muted() { background: @tile-muted-background; opacity: .8; }
+.hook-tile-primary() { background: @tile-primary-background; }
+.hook-tile-secondary() {
+	background: @tile-secondary-background;
+	&:not(.uk-preserve-color) { color: light-dark(var(--pw-blocks-background), var(--pw-text-color)); }
+}
+
+.hook-tile-misc() {
+	.uk-tile-primary:not(.uk-preserve-color),
+	.uk-card-title.uk-tile-primary:not(.uk-preserve-color) {
+		color: var(--pw-text-color);
+	}
+
+	.uk-tile-secondary:not(.uk-preserve-color) {
+
+		.uk-button.uk-button-default:not(.uk-button-text):not(.uk-button-link):not(:disabled):not(.uk-disabled) {
+			color: inherit;
+			border-color: currentColor !important;
+		}
+
+		.uk-button:is(.uk-button-text, .uk-button-link):not(:disabled):not(.uk-disabled) {
+			color: inherit !important;
+		}
+	}
+}

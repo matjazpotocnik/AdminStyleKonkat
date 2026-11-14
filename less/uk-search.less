@@ -1,0 +1,29 @@
+/** uk-search */
+
+@search-color: var(--pw-text-color);
+@search-placeholder-color: var(--pw-muted-color);
+@search-icon-color: var(--pw-muted-color);
+@search-toggle-color: var(--pw-muted-color);
+@search-toggle-hover-color: var(--pw-text-color);
+@search-default-background: transparent;
+@search-navbar-background: transparent;
+@search-medium-background: transparent;
+@search-large-background: transparent;
+@search-default-focus-background: var(--pw-inputs-background);
+@search-navbar-focus-background: var(--pw-inputs-background);
+@search-medium-focus-background: var(--pw-inputs-background);
+@search-large-focus-background: var(--pw-inputs-background);
+@search-default-border: var(--pw-border-color);
+@search-navbar-border: var(--pw-border-color);
+@search-medium-border: var(--pw-border-color);
+@search-large-border: var(--pw-border-color);
+@search-default-focus-border: var(--pw-border-color);
+@search-navbar-focus-border: var(--pw-border-color);
+@search-medium-focus-border: var(--pw-border-color);
+@search-large-focus-border: var(--pw-border-color);
+
+.hook-search-input() { border-color: var(--pw-border-color); }
+.hook-search-misc() {
+	.uk-search .uk-search-input { background-color: transparent; }
+	.uk-search .uk-search-input:focus { background-color: var(--pw-inputs-background); }
+}

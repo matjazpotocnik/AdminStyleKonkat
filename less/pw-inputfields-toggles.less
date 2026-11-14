@@ -1,0 +1,150 @@
+/** pw-inputfields-toggles */
+
+.InputfieldToggleCurrent {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// must keep double selector
+.InputfieldToggleGroup.InputfieldToggleGroup label,
+.InputfieldToggleGroup.InputfieldToggleGroup input:not(:checked) + label:not(.InputfieldToggleCurrent):hover {
+  background-color: var(--pw-main-background);
+  border-color: var(--pw-border-color);
+  color: var(--pw-text-color);
+}
+// must keep double selector
+.InputfieldToggleGroup.InputfieldToggleGroup label.InputfieldToggleCurrent,
+.InputfieldToggleGroup.InputfieldToggleGroup input:checked + label {
+  background-color: var(--pw-button-hover-background);
+  border-color: var(--pw-button-hover-background);
+  color: var(--pw-button-hover-color);
+}
+.InputfieldToggleGroup label:last-of-type,
+.InputfieldToggleGroup label:first-of-type {
+  border-radius: 0;
+  padding: 9px 12px;
+  // min-width: 4em;
+  min-width: 3.5em;
+}
+.InputfieldToggleGroup label:last-of-type {
+  border-left: none;
+}
+.InputfieldToggleGroup label:first-of-type {
+  border-right: none;
+}
+
+.pw-togcbx .InputfieldCheckboxes ul li {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  list-style: none !important;
+  margin: 0 !important;
+}
+
+.pw-togcbx .uk-checkbox {
+  border-color: transparent;
+  border-radius: var(--pw-input-radius);
+  transition: none;
+}
+.pw-togcbx .uk-checkbox:disabled { border-color: var(--pw-border-color); }
+.pw-togcbx .uk-checkbox:focus-visible {
+  background-color: color-mix(in srgb, var(--pw-muted-color), transparent 55%) !important;
+  color: inherit;
+  border-color: var(--pw-border-color);
+  background: var(--pw-inputs-background);
+  outline: none;
+}
+.pw-togcbx .uk-checkbox:checked:focus-visible {
+  background-color: color-mix(in srgb, var(--pw-main-color), var(--pw-text-color) 10%) !important;
+}
+
+.pw-togcbx label:has(> .uk-checkbox),
+.pw-togcbx .InputfieldCheckbox .InputfieldContent.uk-form-controls label {
+  display: inline-flex;
+}
+
+.pw-togcbx input[type="checkbox"],
+.pw-togcbx .uk-checkbox,
+.pw-togcbx .Inputfield input[type="checkbox"],
+.pw-togcbx td > label > input[type="checkbox"].uk-checkbox,
+.pw-togcbx .InputfieldCheckboxes input.uk-checkbox,
+.pw-togcbx .LanguageSupport label.checkbox.detail input.uk-checkbox,
+.pw-togcbx .uk-form-controls-text label:only-of-type input.uk-checkbox {
+  font-size: 0.65rem;
+  margin-top: 0;
+  margin-right: 0.8em;
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  width: 3.5em;
+  height: 2em;
+  border: none;
+  background-color: color-mix(in srgb, var(--pw-muted-color), transparent 30%);
+  border-radius: 3em;
+  box-shadow: none;
+  flex-shrink: 0;
+  vertical-align: middle;
+  align-items: center;
+  top: 0;
+  display: inline-flex;
+}
+.pw-togcbx .uk-checkbox:after,
+.pw-togcbx .InputfieldCheckboxes input[type="checkbox"]:after,
+.pw-togcbx #main .InputfieldCheckboxes input[type="checkbox"]:after,
+.pw-togcbx .LanguageSupport label.checkbox.detail input[type="checkbox"]:after,
+.pw-togcbx .uk-form-controls-text label:only-of-type input[type="checkbox"]:after,
+.pw-togcbx .LanguageSupport label.checkbox.detail input.uk-checkbox:after,
+.pw-togcbx .uk-form-controls-text label:only-of-type input.uk-checkbox:after,
+.pw-togcbx #main .uk-checkbox:after {
+  content: "";
+  position: relative;
+  background-color: var(--pw-blocks-background);
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  box-shadow: none;
+  margin: 0 0.3em;
+}
+.pw-togcbx .uk-checkbox:checked,
+.pw-togcbx .InputfieldCheckboxes input[type="checkbox"]:checked,
+.pw-togcbx .LanguageSupport label.checkbox.detail input[type="checkbox"]:checked,
+.pw-togcbx .uk-form-controls-text label:only-of-type input[type="checkbox"]:checked,
+.pw-togcbx .InputfieldCheckboxes input.uk-checkbox:checked,
+.pw-togcbx .LanguageSupport label.checkbox.detail input.uk-checkbox:checked,
+.pw-togcbx .uk-form-controls-text label:only-of-type input.uk-checkbox:checked,
+.pw-togcbx #main .uk-checkbox:checked {
+  flex-direction: row-reverse;
+  background-color: var(--pw-main-color);
+}
+
+.pw-togcbx .InputfieldCheckboxes .InputfieldCheckboxesStacked li,
+.pw-togcbx #main .InputfieldCheckboxes .InputfieldCheckboxesStacked li,
+.pw-togcbx .InputfieldCheckbox .InputfieldCheckboxesStacked li,
+.pw-togcbx #main .InputfieldCheckbox .InputfieldCheckboxesStacked li,
+.pw-togcbx .InputfieldCheckboxes .InputfieldCheckboxesColumns li,
+.pw-togcbx #main .InputfieldCheckboxes .InputfieldCheckboxesColumns li,
+.pw-togcbx .InputfieldCheckbox .InputfieldCheckboxesColumns li,
+.pw-togcbx #main .InputfieldCheckbox .InputfieldCheckboxesColumns li {
+  padding-bottom: 3px;
+}
+.pw-togcbx .uk-checkbox:checked,
+.pw-togcbx #main .uk-checkbox:checked {
+  background-image: none;
+}
+
+// Switch states must not inherit ordinary checkbox SVG marks.
+.pw-togcbx :is(input[type="checkbox"], .uk-checkbox):indeterminate {
+  background-image: none;
+  justify-content: center;
+}
+.pw-togcbx :is(input[type="checkbox"], .uk-checkbox):indeterminate:after {
+  width: 1em;
+  height: 0.4em;
+  border-radius: 0.2em;
+}
+
+.pw-togcbx :is(input[type="checkbox"], .uk-checkbox):disabled,
+.pw-togcbx :is(input[type="checkbox"], .uk-checkbox):checked:disabled {
+  // Previous 40% mix looked too close to the enabled unchecked track.
+  // background-color: color-mix(in srgb, var(--pw-text-color) 40%, var(--pw-blocks-background)) !important;
+  background-color: color-mix(in srgb, var(--pw-text-color) 65%, var(--pw-blocks-background)) !important;
+}

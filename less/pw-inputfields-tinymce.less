@@ -1,0 +1,96 @@
+/** pw-inputfields-tinymce */
+
+@tox-button-edge: 0px 0px 0 1px color-mix(in srgb, var(--pw-text-color), transparent 98%);
+
+.tox .tox-dialog-wrap__backdrop {
+  background-color: var(--pw-modal-color);
+}
+
+.tox .tox-dialog {
+  color: var(--pw-text-color);
+  border-radius: 0;
+}
+
+.tox-dialog .tox-button,
+.tox-dialog .tox-button:not(.tox-button--secondary):not(.tox-button--icon) {
+  background-color: var(--pw-button-background);
+  color: var(--pw-button-color);
+  border: none;
+  box-shadow: @tox-button-edge;
+  text-transform: none;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: var(--pw-button-radius);
+}
+.tox-dialog .tox-button.tox-button--secondary {
+  background-color: var(--pw-button-muted-background);
+  color: var(--pw-button-muted-color);
+  border: none;
+  box-shadow: @tox-button-edge;
+}
+.tox-dialog .tox-button--naked {
+  border: none;
+  background-color: transparent;
+}
+@media (hover: hover) and (pointer: fine) {
+  .tox-dialog .tox-button:not(:disabled):hover,
+  .tox-dialog .tox-button.tox-button--secondary:not(:disabled):hover,
+  .tox .tox-button--secondary:not(:disabled):hover,
+  .tox-dialog .tox-button:not(.tox-button--secondary):not(.tox-button--icon):not(:disabled):hover {
+    background-color: var(--pw-button-hover-background);
+    color: var(--pw-button-hover-color);
+    border: none;
+    box-shadow: @tox-button-edge;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .tox-dialog .tox-button--naked:hover,
+  .tox .tox-button--naked:hover:not(:disabled) {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.tox.tox-tinymce-inline {
+  z-index: 98;
+}
+body .tox.tox-tinymce-inline .tox-editor-container {
+  overflow: visible !important;
+}
+.tox.tox-tinymce .tox-editor-header,
+.tox.tox-tinymce-inline.tox-tinymce--toolbar-sticky-off .tox-editor-header {
+  translate: 0 1px;
+}
+body:not(.modal) .tox.tox-tinymce.tox-tinymce--toolbar-sticky-on .tox-editor-header {
+  transition: translate 0.3s ease;
+  translate: 0 55px;
+}
+.InputfieldTinyMCE .InputfieldTinyMCEInline.InputfieldTinyMCEInline,
+.tox .tox-textarea-wrap,
+.tox .tox-textfield {
+  border: 1px solid var(--pw-border-color);
+  background-color: var(--pw-inputs-background);
+  border-radius: var(--pw-input-radius);
+}
+.InputfieldTinyMCE .InputfieldTinyMCEInline.InputfieldTinyMCEInline:focus-visible,
+.tox .tox-textarea-wrap:focus-within,
+.tox .tox-textfield:focus-visible {
+  border-color: var(--pw-border-color);
+  outline: none;
+  box-shadow: none;
+  background-color: var(--pw-inputs-background);
+}
+.tox .tox-textarea-wrap,
+.tox .tox-textfield,
+.tox .tox-textarea-wrap:focus-within,
+.tox .tox-textfield:focus-visible {
+  color: var(--pw-text-color);
+}
+.mce-edit-focus {
+  outline: none;
+  border-color: var(--pw-border-color);
+}
+.tox-edit-area__iframe {
+  background-color: var(--pw-inputs-background);
+}

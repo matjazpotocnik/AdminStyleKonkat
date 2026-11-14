@@ -1,0 +1,34 @@
+/** uk-modal */
+
+@modal-background: var(--pw-modal-color);
+@modal-dialog-background: var(--pw-main-background);
+@modal-header-background: var(--pw-blocks-background);
+@modal-footer-background: transparent;
+@modal-header-border: var(--pw-border-color);
+@modal-footer-border: var(--pw-border-color);
+@modal-close-outside-color: var(--pw-blocks-background);
+@modal-close-outside-hover-color: var(--pw-blocks-background);
+@modal-close-full-background: var(--pw-blocks-background);
+
+.hook-modal() { opacity: 1; }
+
+.hook-modal-dialog() {
+    transition: none !important;
+    outline: 1px solid var(--pw-border-color);
+    border-radius: 0;
+}
+
+.hook-modal-header() { border-color: var(--pw-border-color); }
+.hook-modal-footer() { border-color: var(--pw-border-color); }
+
+.hook-modal-misc() {
+    .uk-modal.uk-open {
+        display: flex !important;
+        align-items: center;
+    }
+    .uk-modal-full { background: var(--pw-modal-color); }
+    .uk-modal-footer.uk-text-right .uk-button {
+        margin-right: 0;
+        margin-left: 0.2em;
+    }
+}

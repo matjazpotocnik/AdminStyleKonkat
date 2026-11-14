@@ -1,0 +1,34 @@
+/** uk-notification */
+
+@notification-message-background: var(--pw-alert-primary);
+@notification-message-color: var(--pw-text-color);
+@notification-message-font-size: 1rem;
+@notification-message-primary-color: var(--pw-text-color);
+@notification-message-success-color: var(--pw-text-color);
+@notification-message-warning-color: var(--pw-text-color);
+@notification-message-danger-color: var(--pw-text-color);
+
+.hook-notification-message() { border: 1px solid var(--pw-border-color); }
+.hook-notification-message-primary() { background-color: var(--pw-alert-primary); }
+.hook-notification-message-warning() { background: var(--pw-alert-warning); }
+.hook-notification-message-success() { background: var(--pw-alert-success); }
+.hook-notification-message-danger() { background: var(--pw-alert-danger); }
+
+.hook-notification-misc() {
+    .uk-notification-message-success { background: var(--pw-alert-success); }
+    .uk-notification-message-danger { background: var(--pw-alert-danger); }
+    .uk-notification-close svg { display: none; }
+    .uk-notification-close,
+    .uk-notification-close:hover {
+        color: inherit;
+        text-decoration: none;
+        translate: 0 -14%;
+        display: block;
+    }
+    .uk-notification-close:before {
+        content: "\f00d";
+        font: 14px / 1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+    }
+}

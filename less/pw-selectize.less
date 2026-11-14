@@ -1,0 +1,60 @@
+/** pw-selectize */
+
+.InputfieldTextTags input.InputfieldTextTagsSelect:not(.selectized),
+.InputfieldTextTags input.InputfieldTextTagsInput:not(.selectized) {
+  color: var(--pw-text-color);
+}
+
+.Inputfield:has(.selectize-input.dropdown-active) {
+  z-index: 3;
+}
+.Inputfield.Inputfield .selectize-input {
+  border-color: var(--pw-border-color);
+  border-radius: var(--pw-input-radius);
+  line-height: 21px;
+  background-color: var(--pw-blocks-background);
+  color: var(--pw-text-color);
+}
+.Inputfield .selectize-input:not(.has-items),
+.Inputfield .selectize-control.single .selectize-input {
+  background: var(--pw-inputs-background);
+}
+.Inputfield .selectize-input > input {
+  background: transparent !important;
+  color: var(--pw-text-color);
+}
+.Inputfield .selectize-control.multi .selectize-input.has-items > div {
+  background: var(--pw-main-background);
+  border-color: var(--pw-border-color);
+  color: var(--pw-text-color);
+}
+.Inputfield .selectize-control.multi .selectize-input.has-items > div > a {
+  color: var(--pw-text-color) !important;
+  border-color: var(--pw-border-color);
+}
+.selectize-input.selectize-input:before {
+  content: none;
+}
+.Inputfield .selectize-control.multi .selectize-input.has-items > div a.remove {
+  color: var(--pw-muted-color);
+}
+.selectize-dropdown.selectize-dropdown {
+  background: var(--pw-blocks-background);
+  color: var(--pw-text-color);
+  border: 1px solid var(--pw-border-color);
+  // border-color: var(--pw-border-color);
+}
+.selectize-dropdown .selectize-dropdown-content {
+  background-color: var(--pw-blocks-background);
+}
+.selectize-dropdown .selectize-dropdown-content > * {
+  background-color: transparent;
+}
+.selectize-dropdown .selectize-dropdown-content > .active {
+  background-color: var(--pw-menu-item-background-hover);
+  color: var(--pw-text-color);
+}
+
+.Inputfields .Inputfield .selectize-input input {
+  height: auto;
+}

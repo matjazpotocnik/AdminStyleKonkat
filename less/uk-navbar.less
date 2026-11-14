@@ -1,0 +1,51 @@
+/** uk-navbar */
+
+@navbar-background: var(--pw-blocks-background);
+@navbar-gap: 25px;
+@navbar-nav-gap: 25px;
+@navbar-nav-item-height: 55px;
+@navbar-nav-item-font-size: @global-small-font-size;
+@navbar-nav-item-text-transform: none;
+@navbar-nav-item-font-family: inherit;
+@navbar-nav-item-color: var(--pw-muted-color);
+@navbar-nav-item-hover-color: var(--pw-text-color);
+@navbar-nav-item-onclick-color: var(--pw-text-color);
+@navbar-nav-item-active-color: var(--pw-text-color);
+@navbar-item-color: inherit;
+@navbar-toggle-color: inherit;
+@navbar-toggle-hover-color: var(--pw-muted-color);
+@navbar-dropdown-color: var(--pw-text-color);
+@navbar-dropdown-nav-item-color: var(--pw-text-color);
+@navbar-dropdown-nav-item-hover-color: var(--pw-text-color);
+@navbar-dropdown-nav-item-active-color: var(--pw-text-color);
+@navbar-dropdown-nav-header-color: var(--pw-text-color);
+@navbar-dropdown-nav-divider-border: var(--pw-border-color);
+@navbar-dropdown-nav-sublist-item-color: var(--pw-text-color);
+@navbar-dropdown-nav-sublist-item-hover-color: var(--pw-text-color);
+@navbar-dropdown-nav-sublist-item-active-color: var(--pw-text-color);
+
+.hook-navbar-container() {
+    border-bottom: 1px solid var(--pw-border-color);
+}
+
+.hook-navbar-nav-item() {
+    font-size: 1em;
+}
+
+.hook-navbar-misc() {
+    // UIkit 3.25+ changed align-items to stretch; restore original center alignment
+    .uk-navbar-left,
+    .uk-navbar-right,
+    [class*="uk-navbar-center"] {
+        align-items: center;
+    }
+    .uk-navbar a:where(:not(.uk-accordion-title)) { color: var(--pw-muted-color); }
+    .uk-navbar a.uk-logo { color: var(--pw-main-color); }
+    .uk-navbar-item.uk-logo {
+        display: flex;
+        font-family: inherit;
+    }
+    .uk-navbar-dropdown :focus-visible {
+        outline-color: var(--pw-border-color) !important;
+    }
+}

@@ -1,0 +1,121 @@
+/** pw-inputfields-misc */
+
+// Specific Inputfield type customizations 
+
+.select2-container--open {
+  z-index: 900 !important;
+}
+
+.InputfieldIconAll.InputfieldIconAll .fa.fw {
+  background: none;
+}
+
+.InputfieldIconAll .fa.fw {
+  color: var(--pw-text-color);
+}
+
+.InputfieldIconAll .fa.fw.on {
+  color: var(--pw-button-color);
+  background-color: var(--pw-button-background);
+  border-radius: var(--pw-input-radius);
+}
+
+.InputfieldIcon.InputfieldIcon .fa.fw.on,
+.InputfieldIconItem.InputfieldIconItem.on {
+  background: var(--pw-button-background);
+  color: var(--pw-button-color);
+}
+
+.InputfieldIcon.InputfieldIcon .fa.fw:hover,
+.InputfieldIconItem.InputfieldIconItem:hover,
+.InputfieldIcon.InputfieldIcon .fa.fw:active::after,
+.InputfieldIconItem.InputfieldIconItem:active::after {
+  background: var(--pw-button-hover-background);
+  color: var(--pw-button-hover-color);
+}
+
+.InputfieldPageNameURL,
+.InputfieldCheckbox .InputfieldContent label,
+.InputfieldCheckboxes .InputfieldContent label,
+.InputfieldRadios .InputfieldContent label {
+  font-size: @global-small-font-size;
+}
+
+.InputfieldHidden {
+  // hidden Inputfield type never appears in output
+  display: none !important;
+}
+
+.InputfieldSelector .selector-list li.selector-row {
+  border: none;
+}
+
+// PageListSelect
+.PageListRoot {
+  .PageListSelectActions {
+    padding: 0;
+    > li {
+      border: none;
+      padding: 0;
+      a.PageListSelectActionToggleStart:before,
+      a.PageListSelectActionToggleCancel:before {
+        content: "\f055";
+        font-family: fontAwesome;
+        padding-right: 4px;
+        text-decoration: none !important;
+        display: inline-block;
+      }
+      a.PageListSelectActionToggleCancel:before {
+        content: "\f057";
+      }
+    }
+  }
+}
+
+// Targeting output as it appears on Bookmarks screen like ProcessPageAdd > Bookmarks
+.InputfieldPageListSelectMultiple {
+  > .InputfieldContent > ul.PageListActions {
+    padding: 0;
+    > li:first-child {
+      border-left: none;
+      > a {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+// Render Value Mode 
+// Used when only values are being rendered in the form (no inputs)
+.InputfieldRenderValueMode {
+
+  .InputfieldSelect li,
+  .InputfieldRadios li,
+  .InputfieldCheckboxes li {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .InputfieldSubmit,
+  .InputfieldButton {
+    display: none;
+  }
+}
+
+// Misc
+:not(.InputfieldFieldset) > .InputfieldContent > .Inputfields > .InputfieldMarkup, 
+.InputfieldForm > .Inputfields > .InputfieldMarkup {
+  &.InputfieldHeaderHidden {
+    outline: none;
+    margin-top: @pw-inputfield-margin;
+    > .InputfieldContent {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.InputfieldCheckboxes ul,
+.InputfieldRadios ul {
+  margin-bottom: 0;
+}

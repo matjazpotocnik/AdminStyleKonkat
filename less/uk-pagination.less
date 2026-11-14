@@ -1,0 +1,53 @@
+/** uk-pagination */
+
+@pagination-margin-horizontal: 4px;
+@pagination-item-padding-vertical: 2px;
+@pagination-item-padding-horizontal: 11px;
+@pagination-item-color: var(--pw-muted-color);
+@pagination-item-hover-color: var(--pw-muted-color);
+@pagination-item-active-color: var(--pw-blocks-background);
+@pagination-item-disabled-color: var(--pw-muted-color);
+
+.hook-pagination-item() {
+  background: var(--pw-blocks-background);
+  border: 1px solid var(--pw-border-color);
+  border-radius: 0;
+}
+.hook-pagination-item-hover() {}
+.hook-pagination-item-active() {
+  background: var(--pw-text-color);
+}
+.hook-pagination-item-disabled() {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.uk-pagination > li {
+  padding: 0;
+  margin-left: -1px;
+  &.uk-disabled > span {
+    background: transparent;
+    border: none;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.uk-pagination a {
+  display: block;
+}
+
+.uk-pagination > .uk-disabled > a:has(.uk-pagination-previous, .uk-pagination-next) {
+  padding-left: @pagination-item-padding-horizontal;
+  padding-right: @pagination-item-padding-horizontal;
+}
+
+.uk-pagination > li:not(.uk-active) > a:focus {
+  background: var(--pw-inputs-background);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .uk-pagination > li:not(.uk-active) > a:hover {
+    background: var(--pw-inputs-background);
+  }
+}

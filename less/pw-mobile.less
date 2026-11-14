@@ -1,0 +1,30 @@
+/** pw-mobile */
+
+// offcanvas menu is handled in pw-sidebar.less
+//#offcanvas-toggle {
+//  position: absolute;
+//  top: 23px;
+//  right: 20px;
+//}
+
+// if size causes masthead to break, hide the primary navbar
+#pw-masthead.pw-masthead-broken {
+  .pw-primary-nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: @breakpoint-small-max) {
+  // Keep space below the top buttons.
+  // Below the medium breakpoint, use normal flow for buttons and dropdown wrappers
+  // inside the right-floated container.
+  #pw-content-head-buttons {
+    margin-bottom: @global-margin;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body:not(.pw-ready) #pw-masthead > * {
+    display: none;
+  }
+}

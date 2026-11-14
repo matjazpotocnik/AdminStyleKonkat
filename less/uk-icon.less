@@ -1,0 +1,13 @@
+/** uk-icon */
+
+@icon-link-color: var(--pw-muted-color);
+@icon-link-hover-color: var(--pw-main-color);
+@icon-link-active-color: var(--pw-main-color);
+@icon-button-background: @global-muted-background;
+@icon-button-color: var(--pw-blocks-background);
+@icon-button-hover-background: ~"oklch(from var(--pw-text-color) clamp(0, calc(l - 0.05), 1) c h)";
+@icon-button-hover-color: var(--pw-button-hover-color);
+@icon-button-active-background: ~"oklch(from var(--pw-text-color) clamp(0, calc(l - 0.1), 1) c h)";
+@icon-button-active-color: var(--pw-button-hover-color);
+
+.hook-icon-button() { background: var(--pw-text-color); }

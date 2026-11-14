@@ -1,0 +1,126 @@
+/** pw-notices */
+
+.pw-notices {
+  list-style: none;
+  padding-left: 0;
+  // margin: 3px 0;
+  margin: 0;
+  li {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 0; // !important;
+    margin: 0;
+  }
+  > * ul > li {
+    list-style: disc;
+  }
+  .pw-notice-group-child {
+    display: none;
+  }
+  .pw-notice-remove,
+  .notice-remove {
+    float: right;
+    color: var(--pw-alert-text-color);
+    margin-left: 10px;
+  }
+  .NoticeMessage {
+    border-bottom: 1px solid var(--pw-border-color);
+  }
+  .uk-alert {
+    border: none;
+    border-bottom: 1px solid var(--pw-border-color);
+  }
+  .uk-alert-primary .notice-remove,
+  .uk-alert-warning .notice-remove,
+  .uk-alert-danger .notice-remove {
+    color: var(--pw-alert-text-color);
+  }
+  .uk-alert-danger {
+    color: var(--pw-alert-text-color);
+    a {
+      color: inherit;
+    }
+  }
+  .pw-notice-group-toggle {
+    color: var(--pw-alert-text-color);
+    font-size: @global-small-font-size;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .NoticeMessage a.notice-remove,
+  .pw-notice-remove {
+    color: var(--pw-alert-text-color);
+  }
+
+  .NoticeWarning a.notice-remove,
+  .NoticeError a.notice-remove {
+    color: var(--pw-text-color);
+  }
+}
+
+.pw-layout-sidenav-tree,
+.pw-layout-sidenav-tree-alt {
+  .pw-notices {
+    margin-top: 0;
+    > li:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// SystemNotifications module
+.NotificationMenu {
+  background-color: var(--pw-blocks-background);
+}
+.NotificationGhosts li .NoticeMessage {
+  background: var(--pw-inputs-background);
+}
+.NotificationGhosts li .NoticeError {
+  background: var(--pw-alert-danger);
+}
+.NotificationGhosts li .NoticeWarning {
+  background: var(--pw-alert-warning);
+}
+.NotificationGhosts li .NoticeMessage,
+.NotificationGhosts li .NoticeError,
+.NotificationGhosts li .NoticeWarning {
+  color: var(--pw-text-color);
+}
+
+#NotificationList {
+  > li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .NoticeMessage {
+    border-color: var(--pw-border-color);
+  }
+  > li > div > p {
+    position: relative;
+    margin: 0;
+  }
+  .NotificationRemove {
+    top: 3px;
+  }
+  .NotificationText > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#NotificationBug {
+  &.NoticeWarning {
+    background: var(--pw-alert-warning);
+    color: var(--pw-text-color);
+  }
+  &.NoticeSuccess {
+    background: var(--pw-alert-success);
+    color: var(--pw-text-color);
+  }
+  &.NoticeError {
+    background: var(--pw-alert-danger);
+    color: var(--pw-text-color);
+  }
+}

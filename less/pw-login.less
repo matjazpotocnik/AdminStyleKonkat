@@ -1,0 +1,168 @@
+/** pw-login */
+
+body.ProcessLogin:not(:has(#tools-toggle)) #pw-mastheads {
+  position: static;
+  // Override the fixed 56px masthead height: the login logo box can be
+  // taller than 56px (i.e. wide custom logos in the 4/3 logo link box),
+  // and a fixed height makes it overflow/overlap the login fields below.
+  height: auto;
+}
+
+.ProcessLogin:not(:has(#tools-toggle)) #pw-masthead-mobile {
+  background-color: transparent;
+  border-bottom: none;
+  position: relative;
+  height: auto;
+}
+
+body.pw-guest {
+  #pw-masthead {
+    display: none;
+  }
+  #pw-masthead-mobile {
+    display: block !important;
+  }
+  #pw-content-head {
+    display: none;
+  }
+  #pw-content-body {
+    text-align: center;
+  }
+  .pw-notices {
+    > li > .uk-container {
+      // text-align: center;
+      text-align: left;
+    }
+    .notice-remove {
+      display: none;
+    }
+  }
+  hr,
+  footer {
+    display: none;
+  }
+}
+
+// login screen, shown only when no user is logged in
+.ProcessLogin {
+  #ProcessLoginForm {
+    // width: 250px;
+    margin: 0 auto;
+    #wrap_login_name,
+    #wrap_login_pass,
+    #wrap_Inputfield_login_submit {
+      width: 250px;
+      outline: none;
+      padding: 0;
+      // margin: 0 !important;
+      .InputfieldHeader {
+        padding: 0;
+        margin: 0;
+        font-weight: normal;
+      }
+    }
+    #wrap_Inputfield_login_submit {
+      display: inline-block;
+      .ui-button {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.ProcessLogin:has(#tools-toggle) #ProcessLoginForm {
+  width: 250px;
+  #wrap_login_name,
+  #wrap_login_pass,
+  #wrap_Inputfield_login_submit {
+    margin: 0 !important;
+    input {
+      text-align: center;
+    }
+  }
+  #wrap_Inputfield_login_submit {
+    margin: 0 auto !important;
+  }
+}
+
+html:has(.ProcessLogin):not(:has(#tools-toggle)),
+.ProcessLogin:not(:has(#tools-toggle)) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html:has(.ProcessLogin):not(:has(#tools-toggle)) {
+  align-content: center;
+  min-height: 100vh;
+}
+.ProcessLogin:not(:has(#tools-toggle)) {
+  padding: 40px;
+  min-width: 20vw;
+  min-height: 30vh;
+  max-width: 380px;
+  max-height: 900px;
+  border: 1px solid var(--pw-border-color);
+
+  .pw-notices {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .pw-logo-link {
+    aspect-ratio: 4/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > * {
+      scale: 1.35;
+    }
+  }
+  #ProcessLoginForm {
+    width: fit-content;
+    > .Inputfields {
+      padding: 0 30px;
+      background-color: var(--pw-blocks-background);
+      width: fit-content;
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+      input:focus-visible {
+        outline: none;
+        background-color: var(--pw-blocks-background);
+      }
+    }
+    .InputfieldContent {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .Inputfield {
+      margin: 5px auto !important;
+    }
+    input {
+      text-align: left;
+    }
+    input::placeholder {
+      color: var(--pw-muted-color);
+    }
+  }
+}
+
+body.ProcessLogin:not(:has(#tools-toggle)).pw-guest .pw-notices .notice-remove {
+  display: block;
+}
+html body.ProcessLogin:not(:has(#tools-toggle)) {
+  background: var(--pw-blocks-background);
+  box-shadow: none;
+  padding: 20px;
+  align-content: center;
+  position: static;
+  margin: auto;
+}
+html body.ProcessLogin:not(:has(#tools-toggle)) > #main {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  max-width: 390px !important;
+  margin-top: 0;
+}

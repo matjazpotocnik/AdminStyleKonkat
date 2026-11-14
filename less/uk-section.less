@@ -1,0 +1,29 @@
+/** uk-section */
+
+@section-default-background: var(--pw-blocks-background);
+@section-muted-background: var(--pw-blocks-background);
+@section-primary-background: color-mix(in srgb, var(--pw-blocks-background), var(--pw-main-color) 25%);
+@section-secondary-background: color-mix(in srgb, var(--pw-blocks-background), var(--pw-text-color) 18%);
+
+.hook-section-muted() {
+    opacity: .8;
+    border: 1px solid var(--pw-border-color);
+    color: var(--pw-text-color);
+    border-radius: 0;
+}
+
+.hook-section-misc() {
+    .uk-section-muted {
+        background-color: var(--pw-blocks-background);
+    }
+
+    .uk-section {
+        padding-top: var(--pw-spacing);
+        padding-bottom: var(--pw-spacing);
+    }
+
+    .uk-section-primary:not(.uk-preserve-color),
+    .uk-section-secondary:not(.uk-preserve-color) {
+        color: var(--pw-text-color);
+    }
+}

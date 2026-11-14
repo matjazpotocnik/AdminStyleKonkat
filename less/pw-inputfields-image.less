@@ -1,0 +1,158 @@
+/** pw-inputfields-image */
+
+.InputfieldImage:not(.InputfieldStateCollapsed) {
+
+  > .InputfieldContent {
+    padding-top: 1px;
+    .gridImage {
+      box-shadow: none;
+      border: @pw-inputfield-border;
+      &.gridImage--delete {
+        border-color: var(--pw-error-inline-text-color);
+      }
+    }
+
+    ul.gridImages {
+      margin-top: 0;
+    }
+
+    ul.InputfieldImageErrors {
+      margin: 0;
+    }
+
+    .gridImage__overflow {
+      transition: opacity 0.25s ease;
+    }
+
+  }
+
+  .InputfieldContent .InputfieldImageEdit .InputfieldImageEdit__edit,
+  &.InputfieldImageEditAll .InputfieldContent {
+    .gridImage .ImageData .InputfieldImageEdit__name,
+    .InputfieldImageEdit__name {
+      font-size: @global-font-size;
+      margin: @global-small-margin 0;
+    }
+    .gridImage--delete .ImageData .InputfieldImageEdit__name {
+      margin: 5px 0 0;
+    }
+  }
+  .InputfieldImageEdit__core {
+    label:not(.pw-hidden):not(.LanguageSupportLabel) {
+      display: block;
+    }
+    input {
+      display: block;
+      width: 100%;
+    }
+  }
+  .InputfieldImageEdit__buttons {
+    margin-top: 0;
+  }
+}
+
+// file/image upload buttons
+.InputfieldFileUpload,
+.InputfieldImageUpload {
+  .InputMask.ui-button {
+    // the "choose file" button
+    .uk-button-default();
+    &:hover {
+      .uk-button-primary();
+    }
+    .ui-button-text {
+      line-height: @button-line-height;
+    }
+  }
+}
+
+@-moz-document url-prefix() {
+  // Firefox only: avoids random outlines elsewhere in the layout when in grid modes
+  .InputfieldImage > .InputfieldContent {
+    overflow: hidden;
+  }
+}
+
+.gridImage.gridImage {
+  background: var(--pw-blocks-background);
+  border: 1px solid var(--pw-border-color);
+}
+.gridImage__btn.gridImage__btn {
+  background: var(--pw-blocks-background);
+  color: var(--pw-text-color);
+}
+@media (hover: hover) and (pointer: fine) {
+  .gridImage.gridImage:hover .gridImage__btn:hover {
+    background: var(--pw-blocks-background);
+    color: var(--pw-text-color);
+  }
+}
+.gridImage__edit {
+  text-shadow: none;
+}
+.gridImage.gridImageEditing .gridImage__inner {
+  background: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .gridImage.gridImage:hover .gridImage__inner {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .InputfieldImageEditAll .gridImage:hover .gridImage__inner {
+    background-color: var(--pw-blocks-background) !important;
+  }
+}
+.gridImage.gridImage.gridImage--delete .ImageData > *:not(.InputfieldImageEdit__name) {
+  display: none;
+}
+.gridImage.gridImage--delete .gridImage__overflow {
+  opacity: 0.5;
+}
+.gridImage.gridImage--delete,
+.gridImage.gridImage--delete .ImageData > *,
+.gridImage.gridImage--delete .gridImage__trash {
+  background: var(--pw-alert-danger) !important;
+  color: var(--pw-error-inline-text-color) !important;
+}
+.InputfieldImage .gridImages .gridImage.gridImage--delete {
+  border-color: var(--pw-error-inline-text-color);
+}
+.gridImage.gridImage.gridImage--delete .gridImage__inner {
+  background: transparent !important;
+}
+.InputfieldImageEdit__info.InputfieldImageEdit__info {
+  color: var(--pw-muted-color);
+  font-size: 0.875rem;
+}
+.InputfieldImageEdit__inner.InputfieldImageEdit__inner,
+.gridImage__tooltip.gridImage__tooltip {
+  border: none;
+  filter: drop-shadow(1px 0px 0px color-mix(in srgb, var(--pw-text-color), transparent 98%))
+    drop-shadow(-1px 0px 0px color-mix(in srgb, var(--pw-text-color), transparent 98%))
+    drop-shadow(0px 1px 0px color-mix(in srgb, var(--pw-text-color), transparent 98%))
+    drop-shadow(0px -1px 0px color-mix(in srgb, var(--pw-text-color), transparent 98%));
+  background: var(--pw-blocks-background);
+}
+.InputfieldImageEdit__imagewrapper.InputfieldImageEdit__imagewrapper {
+  border-right: 1px solid var(--pw-border-color);
+}
+.InputfieldImageEdit__arrow.InputfieldImageEdit__arrow {
+  border-bottom-color: var(--pw-blocks-background);
+}
+.gridImage__tooltip {
+  color: var(--pw-text-color);
+}
+.gridImage__tooltip table th,
+.gridImage__tooltip table td {
+  background-color: var(--pw-blocks-background) !important;
+  color: var(--pw-text-color);
+}
+.gridImage__tooltip.gridImage__tooltip:after {
+  border-color: transparent;
+  border-top-color: var(--pw-blocks-background);
+}
+input.gridImage__deletebox {
+  display: none !important;
+}
+.gridImage .gridImage__inner {
+  transition: background-color 0.25s ease;
+}

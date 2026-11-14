@@ -1,0 +1,246 @@
+/** uk-base */
+
+// @base-body-font-family: @global-font-family;
+// @base-body-font-weight: normal;
+// @base-body-color: @global-color;
+@base-body-font-family: @global-font-family;
+@base-body-font-size: var(--pw-font-size, 16px);
+@base-body-font-weight: 400;
+@base-body-color: var(--pw-text-color);
+
+// @base-link-color: @global-link-color;
+// @base-link-hover-color: @global-link-hover-color;
+@base-link-color: var(--pw-main-color);
+@base-link-hover-color: var(--pw-main-color);
+
+// @base-heading-font-family: @global-font-family;
+// @base-heading-color: @global-emphasis-color;
+@base-heading-font-family: inherit;
+@base-heading-color: inherit;
+
+@base-h1-font-size: @global-xlarge-font-size; // 2rem
+//@base-h1-font-size-m: 2.25rem;
+@base-h1-font-size-m: @base-h1-font-size;
+@base-h1-line-height: 1.3;
+
+@base-h2-font-size: 1.75rem;
+@base-h2-font-size-m: @base-h2-font-size;
+@base-h2-line-height: 1.4;
+
+@base-h3-font-size: @global-medium-font-size;
+@base-h3-line-height: 1.4;
+
+// @base-h4-font-size: @global-font-size;
+@base-h4-font-size: 1.125rem;
+@base-h4-line-height: 1.4;
+
+// @base-h5-font-size: @global-font-size;
+@base-h5-font-size: 1rem;
+
+// @base-blockquote-color: @global-emphasis-color;
+// @base-blockquote-footer-color: @global-color;
+@base-blockquote-color: var(--pw-text-color);
+@base-blockquote-footer-color: var(--pw-muted-color);
+
+// @base-selection-background: #39f;
+// @base-selection-color: @global-inverse-color;
+@base-selection-background: var(--pw-main-color);
+// @base-selection-color: #fff;
+@base-selection-color: var(--pw-blocks-background);
+// @base-em-color: @global-danger-background;
+@base-em-color: inherit;
+// @base-ins-background: #ffd;
+// @base-ins-color: @global-color;
+@base-ins-background: var(--pw-alert-success);
+@base-ins-color: color-mix(in srgb, var(--pw-alert-success) 28%, var(--pw-text-color));
+// @base-mark-background: #ffd;
+// @base-mark-color: @global-color;
+@base-mark-background: var(--pw-alert-warning);
+@base-mark-color: color-mix(in srgb, var(--pw-alert-warning) 28%, var(--pw-text-color));
+// @base-code-color: @global-danger-background;
+// @base-code-background: none;
+@base-code-color: var(--pw-code-color);
+@base-code-background: var(--pw-code-background);
+@base-code-padding-horizontal: 0;
+@base-code-padding-vertical: 0;
+// @base-pre-color: @global-color;
+// @base-pre-background: @global-background;
+// @base-pre-border-radius: 3px;
+@base-pre-color: var(--pw-code-color);
+@base-pre-background: var(--pw-code-background);
+@base-pre-border-radius: 0;
+// @base-hr-border-width: @global-border-width;
+// @base-hr-border: @global-border;
+@base-hr-border-width: 1px;
+@base-hr-border: var(--pw-border-color);
+
+.hook-base-code() {
+    overflow: auto;
+    outline: none;
+    border: none;
+    border-radius: 0;
+}
+
+.hook-base-pre() {
+    outline: none;
+    border: none;
+}
+
+.hook-base-misc() {
+    @pw-base-native-text-input: ~'input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="hidden"])';
+    @pw-base-native-buttons: ~'button, input[type="button"], input[type="submit"], input[type="reset"]';
+
+    body {
+        font-family: @base-body-font-family;
+        font-weight: @base-body-font-weight;
+        color: @base-body-color;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        font-family: inherit;
+    }
+
+    :focus-visible {
+        outline: none;
+    }
+
+    a {
+        text-underline-offset: 0.125em;
+    }
+
+    a:focus-visible,
+    label > :focus-visible {
+        outline: 1px dotted var(--pw-main-color);
+        outline-offset: 3px;
+    }
+
+    ins {
+        text-decoration: underline;
+        font-weight: inherit;
+    }
+
+    del { color: var(--pw-error-inline-text-color); }
+
+    b {
+        font-weight: bold;
+    }
+
+    strong {
+        font-weight: 600;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    p > code, li > code, h2 code, h3 code { font-size: 0.9375em; }
+    h4 code { font-size: 1em; }
+
+    :where(input[type="checkbox"], input[type="radio"], input[type="range"], progress) {
+        accent-color: var(--pw-main-color);
+    }
+    :where(@{pw-base-native-text-input}, textarea, select):where(:not([class], .Inputfields *)) {
+        font: inherit;
+        padding: 0.4em 0.5em;
+        color: var(--pw-text-color);
+        background-color: var(--pw-inputs-background);
+        border: 1px solid var(--pw-border-color);
+        border-radius: var(--pw-input-radius);
+    }
+    :where(@{pw-base-native-text-input}):where(:not([class], .Inputfields *)):-webkit-autofill {
+        -webkit-text-fill-color: var(--pw-text-color);
+        box-shadow: 0 0 0 1000px var(--pw-inputs-background) inset;
+    }
+    :where(@{pw-base-native-text-input}, textarea, select):where(:not([class], .Inputfields *)):focus-visible {
+        border-color: var(--pw-text-color);
+        box-shadow: 0 0 0 1px var(--pw-text-color);
+    }
+    :where(textarea):where(:not([class], .Inputfields *)) {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+    :where(fieldset):where(:not([class], .Inputfields *)) {
+        min-inline-size: 0;
+    }
+    :where(@{pw-base-native-text-input}, textarea):where(:not([class], .Inputfields *))[readonly] {
+        background-color: var(--pw-main-background);
+    }
+    :where(@{pw-base-native-text-input}, textarea, select):where(:not([class], .Inputfields *)):disabled {
+        color: var(--pw-muted-color);
+        background-color: var(--pw-main-background);
+        cursor: not-allowed;
+    }
+    :where(table:not([class]) th) {
+        text-align: start;
+    }
+    :where(@{pw-base-native-buttons}):where(:not([class])) {
+        font: inherit;
+        padding: .4em 1em;
+        color: var(--pw-button-color);
+        background: var(--pw-button-background);
+        border: 1px solid var(--pw-button-border);
+        border-radius: var(--pw-button-radius);
+        cursor: pointer;
+    }
+    :where(@{pw-base-native-buttons}):where(:not([class]):disabled) {
+        color: var(--pw-button-muted-color);
+        background: var(--pw-button-muted-background);
+        border-color: var(--pw-button-muted-border);
+        cursor: default;
+    }
+    :where(input[type="file"]):where(:not([class], .Inputfields *)) {
+        font: inherit;
+        color: var(--pw-text-color);
+        max-width: 100%;
+        min-width: 0;
+    }
+    :where(input[type="file"]):where(:not([class], .Inputfields *)):disabled {
+        color: var(--pw-muted-color);
+    }
+    @media (hover: hover) and (pointer: fine) {
+        :where(@{pw-base-native-buttons}):where(:not([class]):enabled:hover) {
+            color: var(--pw-button-hover-color);
+            background: var(--pw-button-hover-background);
+            border-color: var(--pw-button-hover-border);
+        }
+    }
+    :where(@{pw-base-native-buttons}):where(:not([class]):focus-visible) {
+        outline: 2px solid var(--pw-main-color);
+        outline-offset: 2px;
+    }
+    :where(fieldset:not([class])) {
+        margin: 1.5em 0;
+        padding: 1em;
+        border: 1px solid var(--pw-border-color);
+        border-radius: var(--pw-input-radius);
+    }
+    :where(legend) {
+        padding: 0 0.35em;
+    }
+    :where(legend),
+    :where(summary) {
+        color: var(--pw-text-color);
+        font-weight: 600;
+    }
+    :where(details:not([class])) {
+        margin: 1em 0;
+        padding: 0.75em 1em;
+        border: 1px solid var(--pw-border-color);
+        border-radius: var(--pw-input-radius);
+    }
+    :where(summary) {
+        cursor: pointer;
+    }
+    :where(summary:focus-visible) {
+        outline: 2px solid var(--pw-main-color);
+        outline-offset: 3px;
+    }
+    :where(figure) {
+        margin: 1.5em 0;
+    }
+    :where(figcaption) {
+        margin-top: 0.5em;
+        color: var(--pw-muted-color);
+    }
+}

@@ -1,0 +1,120 @@
+/** pw-inputfields-json */ 
+
+// dark theme for InputfieldJSON
+.InputfieldJson :is(.jsoneditor, .jsoneditor-navigation-bar, .jsoneditor-menu, div.jsoneditor-tree) {
+	background: var(--pw-blocks-background);
+	color: var(--pw-text-color);
+}
+
+.InputfieldJson .jsoneditor {
+	border: 1px solid var(--pw-border-color);
+}
+
+.InputfieldJson .jsoneditor :is(td, th, input, textarea, select, .jsoneditor-field, .jsoneditor-value, .jsoneditor-readonly) {
+	font-size: 15px;
+}
+
+.InputfieldJson .jsoneditor :is(.jsoneditor-field, .jsoneditor-value, .jsoneditor-readonly) {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.InputfieldJson .jsoneditor-navigation-bar,
+.InputfieldJson .jsoneditor-empty {
+	border-color: var(--pw-border-color);
+}
+
+.InputfieldJson :is(.jsoneditor-field, .jsoneditor-readonly, .jsoneditor-value),
+.InputfieldJson .jsoneditor td,
+.InputfieldJson .jsoneditor-contextmenu .jsoneditor-menu button,
+.InputfieldJson .autocomplete.dropdown .item {
+	color: var(--pw-text-color);
+}
+
+// Replace vendor orange with readable boolean colours in both themes.
+.InputfieldJson .jsoneditor-value.jsoneditor-boolean {
+	color: light-dark(#995200, #ffb454);
+}
+
+// Keep vendor blue in light mode and brighten null values in dark mode.
+.InputfieldJson .jsoneditor-value.jsoneditor-null {
+	color: light-dark(#004ed0, #8dbbff);
+}
+
+.InputfieldJson .jsoneditor-value.jsoneditor-url {
+	text-decoration-thickness: 1px;
+}
+
+.InputfieldJson .jsoneditor-empty::after,
+.InputfieldJson .jsoneditor td.jsoneditor-separator {
+	color: var(--pw-muted-color);
+}
+
+.InputfieldJson .jsoneditor :is(input, textarea, select) {
+	background: var(--pw-inputs-background);
+	border-color: var(--pw-border-color);
+	color: var(--pw-text-color);
+}
+
+.InputfieldJson .jsoneditor input[type="checkbox"] {
+	accent-color: var(--pw-main-color);
+}
+
+.InputfieldJson .jsoneditor-search .jsoneditor-frame {
+	background-color: var(--pw-inputs-background);
+	border-color: var(--pw-border-color);
+}
+
+.InputfieldJson .jsoneditor td.jsoneditor-separator {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.InputfieldJson .jsoneditor td.jsoneditor-tree:has(> input[type="checkbox"]) {
+	vertical-align: middle;
+}
+
+.InputfieldJson .jsoneditor tr:hover,
+.InputfieldJson tr.jsoneditor-highlight {
+	background: var(--pw-menu-item-background-hover);
+}
+
+.InputfieldJson :is(.jsoneditor-field, .jsoneditor-value)[contenteditable=true]:is(:focus, :hover), .InputfieldJson :is(.jsoneditor-field, .jsoneditor-value).jsoneditor-highlight {
+	background: var(--pw-menu-item-background-hover);
+	border-color: var(--pw-border-color);
+}
+
+.InputfieldJson :is(.jsoneditor-field, .jsoneditor-value).jsoneditor-highlight-active, .InputfieldJson :is(.jsoneditor-field, .jsoneditor-value).jsoneditor-highlight-active:is(:focus, :hover) {
+	background: var(--pw-main-color);
+	border-color: var(--pw-main-color);
+	color: var(--pw-blocks-background);
+}
+
+.InputfieldJson tr.jsoneditor-selected {
+	background: var(--pw-main-color);
+	color: var(--pw-blocks-background);
+}
+
+.InputfieldJson tr.jsoneditor-selected :is(.jsoneditor-field, .jsoneditor-readonly, .jsoneditor-value, td) {
+	color: var(--pw-blocks-background);
+}
+
+.InputfieldJson .jsoneditor-contextmenu .jsoneditor-menu,
+.InputfieldJson .autocomplete.dropdown {
+	background: var(--pw-inputs-background);
+	border-color: var(--pw-border-color);
+}
+
+.InputfieldJson .autocomplete.dropdown .item.hover,
+.InputfieldJson .jsoneditor-contextmenu .jsoneditor-menu button:is(:hover, :focus) {
+	background: var(--pw-menu-item-background-hover);
+	color: var(--pw-text-color);
+}
+
+body.dark-theme .InputfieldJson div.jsoneditor-tree button:is(.jsoneditor-collapsed, .jsoneditor-expanded, .jsoneditor-contextmenu-button, .jsoneditor-dragarea) {
+	filter: invert(1) brightness(2);
+}
+
+body.dark-theme .InputfieldJson .jsoneditor-value:is(.jsoneditor-string, .jsoneditor-url) {
+	color: color-mix(in srgb, var(--pw-alert-success), var(--pw-text-color) 20%);
+}

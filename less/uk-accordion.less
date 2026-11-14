@@ -1,0 +1,30 @@
+/** uk-accordion */
+
+@accordion-default-title-color: var(--pw-text-color);
+@accordion-default-title-hover-color: var(--pw-muted-color);
+@accordion-default-icon-color: inherit;
+
+.hook-accordion-misc() {
+    .uk-accordion-title:where(*),
+    .uk-accordion-title.uk-link-muted {
+        color: @accordion-default-title-color;
+    }
+    .uk-accordion-title:where(*) {
+        border-top: 1px solid var(--pw-border-color);
+        padding-top: 10px;
+        font-size: 1em;
+        line-height: 1.5;
+    }
+    .uk-accordion-title:hover,
+    .uk-accordion-title.uk-link-muted:hover { color: @accordion-default-title-hover-color; }
+    .uk-accordion-title::before {
+        content: "\2B";
+        background: none;
+        font-size: 1.15em;
+        text-align: right;
+        line-height: 1.15;
+    }
+    .uk-open > .uk-accordion-title::before { content: "\2212"; }
+    .uk-accordion-title:has(.uk-accordion-icon)::before { content: none; }
+    .uk-accordion > :nth-child(n + 2) { margin-top: 10px; }
+}

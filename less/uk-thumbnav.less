@@ -1,0 +1,6 @@
+/** uk-thumbnav */
+
+@thumbnav-item-gradient: none;
+.hook-thumbnav-item() {
+    &::after { background-color: color-mix(in srgb, var(--pw-text-color) 20%, transparent); }
+}

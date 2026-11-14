@@ -1,0 +1,142 @@
+/** pw-process */
+
+// Tweaks for specific ProcessWire “Process” modules
+
+// ProcessPageEditImageSelect
+.ProcessPageEditImageSelect {
+  #selected_image_settings {
+    // ProcessPageEditImageSelect form
+    margin-top: 0;
+    
+    #selected_image_pixels,
+    #crop_coordinates,
+    #wrap_description {
+      input {
+        line-height: @form-small-height;
+        font-size: @global-small-font-size;
+        padding-left: @form-padding-horizontal;
+        padding-right: @form-padding-horizontal;
+      }
+    }
+    #selected_image_checkboxes {
+      line-height: @form-line-height;
+    }
+    #action_icons span {
+      margin-right: 3px;
+      padding: 8px 9px;
+      &:hover {
+        background: var(--pw-main-color);
+      }
+    }
+  }
+  #ProcessPageEditImageSelect > form {
+    margin-top: 1px;
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+  #wrap_info {
+    margin-top: 0;
+  }
+
+}
+
+// ProcessModule
+a .ModuleClass.ui-priority-secondary {
+  opacity: 1;
+}
+
+.modules_section a[style="opacity: 0.6;"] {
+  opacity: 1 !important;
+}
+
+// ProcessList — scale down 3x icons
+.ProcessList #pw-content-body dt > a > .fa-3x {
+  font-size: 2.5rem;
+  margin-top: 0.25rem; // center vertically
+}
+
+.ProcessModule .modules_section {
+  > h2 {
+    // ProcessModule
+    margin-top: @global-medium-margin;
+    margin-bottom: 0;
+  }
+  > .pw-table-responsive {
+    margin-top: 0;
+    margin-bottom: @global-medium-margin;
+  }
+}
+
+// ProcessLister
+#ProcessListerResults #ProcessListerTable .pw-table-responsive {
+  outline: none;
+  border: 1px solid var(--pw-border-color);
+}
+
+#ProcessListerResults #ProcessListerTable table.ProcessListerTable > tbody > tr > td ul.MarkupFieldtype > li + li {
+  border-top-color: var(--pw-border-color);
+}
+
+.import-error {
+  color: var(--pw-error-inline-text-color);
+}
+
+// ProcessTemplate
+.template-permissions label:has(> .uk-checkbox) {
+  display: block;
+}
+
+// ProcessField
+span.pw-diff {
+  color: var(--pw-muted-color);
+}
+
+.ProcessField {
+  #fieldgroupContextSelect {
+    // don't show context select since it is redundant
+    display: none;
+  }
+
+  .Inputfield_columnWidth .InputfieldColumnWidthSlider {
+    // column width slider when configuring Inputfield visibility in ProcessField.module
+    // this visually centers it with the percent input floated to the left of it
+    top: 14px;
+  }
+}
+
+//ProcessPageEditChildEdit
+#ProcessPageEditChildEdit {
+  outline: 1px solid var(--pw-border-color);
+  .PageEditChild {
+    border: none;
+    background-color: var(--pw-blocks-background) !important;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .PageEditChildHidden {
+    outline-style: dashed;
+  }
+  .PageEditChildHidden > .InputfieldHeader .PageEditChildHideAction,
+  .PageEditChildUnpub > .InputfieldHeader .PageEditChildUnpubAction {
+    color: var(--pw-main-color);
+  }
+}
+
+.ModulesList table.AdminDataList td p.module-summary,
+._ProcessPageEditViewDropdownToggle {
+  color: var(--pw-text-color);
+}
+
+//ProcessPageEdit
+#ProcessPageEditDelete {
+  background-color: transparent;
+}
+
+.ProcessPageEdit.modal {
+  form#ProcessPageEdit.ProcessPageEditSingleField {
+    //MP fixes https://github.com/processwire/processwire-issues/issues/1972
+    //margin-top: -20px;
+    margin-top: 0;
+  }
+}

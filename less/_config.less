@@ -1,0 +1,48 @@
+/** _config */
+
+// MP: Do not compile UIkit's alternate colours for text, links and components.
+// UIkit normally uses .uk-light for light content on dark surfaces, or .uk-dark
+// for dark content on light surfaces. With none, those classes and components
+// that use them do not automatically get a separate colour palette.
+// Konkat's own light and dark modes still work through the --pw-* colour variables.
+// Surface-specific colours must be set by the theme where needed.
+// UIkit still emits --uk-inverse metadata for its JavaScript; this setting does
+// not remove that metadata or disable JavaScript that reads it.
+@inverse-global-color-mode: none;
+
+// Keep these as fixed colours because Less uses them to calculate other colours.
+// Less still runs those calculations when a later rule replaces the result, and var(--pw-*) would fail.
+// Use var(--pw-*) in component variables or rules that do not need Less colour calculations.
+@global-color: #666; // icon-link active darken(5%); also dotnav/slidenav fade().
+@global-background: #fff; // form/card backgrounds feed darken(5%).
+@global-muted-background: #f8f8f8; // icon/form/range darken(5/10%), Inputfield border(4%).
+@global-primary-background: #1e87f0; // button/card darken(5/10%), checked form focus(10%).
+@global-secondary-background: #222; // secondary button/card darken(5/10%).
+@global-danger-background: #f0506e; // danger button darken(5/10%).
+@global-border: #e5e5e5; // button borders darken(20/30%), form/range borders(10%).
+
+// These are safe to replace.
+@global-font-family: "Inter", system-ui, sans-serif;
+@global-secondary-color: var(--pw-text-color);
+@global-link-hover-color: var(--pw-main-color);
+@global-link-color: var(--pw-main-color);
+@global-muted-color: var(--pw-muted-color);
+
+// Konkat V2 configuration
+:root {
+	--pw-font-size: 16px;
+	// Replace Konkat's Mellow Melon #eb1d61 to provide better contrast.
+	--pw-main-color: #e51c5e; // Radiant Raspberry
+	// Opaque secondary surfaces.
+	--pw-secondary-background: light-dark(#6b6b6b, #404040);
+	// Clearer menu hover contrast.
+	--pw-menu-item-background-hover: light-dark(#e2e2e2, #333);
+	// Theme-wide spacing, retained Konkat's default.
+	--pw-spacing: 25px;
+}
+@media (max-width: 960px) { :root {--pw-spacing: 20px;} }
+@media (max-width: 640px) { :root {--pw-spacing: 15px;} }
+
+:root { --pw-admin-gutter: 15px; }
+@media (min-width: 640px) { :root { --pw-admin-gutter: 30px; } }
+@media (min-width: 960px) { :root { --pw-admin-gutter: 40px; } }
