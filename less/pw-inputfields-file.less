@@ -22,7 +22,7 @@
     > .InputfieldItemHeader.InputfieldFileInfo {
       border: none;
       background: var(--pw-inputs-background);
-      background-color: var(--pw-inputs-background) !important;
+      //background-color: var(--pw-inputs-background) !important;
       color: var(--pw-text-color);
       outline: 1px solid var(--pw-border-color);
       font-weight: inherit;
@@ -54,6 +54,9 @@ ul.InputfieldFileList.InputfieldFileList li .InputfieldFileData {
 
 .InputfieldFileDelete {
   padding-right: 7px;
+}
+.InputfieldFileDelete > input[type="checkbox"] {
+	display: none !important;
 }
 
 .AjaxUpload .InputfieldFileInfo .InputfieldFileName,

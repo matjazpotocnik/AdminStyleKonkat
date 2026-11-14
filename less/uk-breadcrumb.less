@@ -11,6 +11,11 @@
 	margin-bottom: 10px;
 }
 
+.hook-breadcrumb-divider() {
+	// UIKIT update v3.25.30 Keep the divider visible but give it empty alternative text.
+	content: @breadcrumb-divider ~'/ ""';
+}
+
 .hook-breadcrumb-misc() {
 	.uk-breadcrumb a,
 	.uk-breadcrumb > :last-child > * {

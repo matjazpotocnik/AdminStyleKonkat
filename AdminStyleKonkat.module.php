@@ -5,7 +5,7 @@ class AdminStyleKonkat extends WireData implements Module {
 	public static function getModuleInfo() {
 		return array(
 			'title' => 'Admin Style Konkat',
-			'version' => 1,
+			'version' => 2,
 			'summary' => 'Improved Konkat styling for AdminThemeUikit.',
 			'autoload' => 'template=admin',
 			'singular' => true,

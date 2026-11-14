@@ -57,8 +57,14 @@
   .InputMask.ui-button {
     // the "choose file" button
     .uk-button-default();
-    &:hover {
-      .uk-button-primary();
+    // MP: .uk-button-primary() hardcodes UIkit blue #1e87f0; use theme hover vars.
+    // .uk-button-primary();
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--pw-button-hover-background);
+        color: var(--pw-button-hover-color);
+        border-color: transparent;
+      }
     }
     .ui-button-text {
       line-height: @button-line-height;
